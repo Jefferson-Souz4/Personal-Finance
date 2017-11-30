@@ -1,0 +1,26 @@
+unit UCad_Contas_Banco;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UForm_Padao, Data.DB, Vcl.ExtCtrls,
+  System.ImageList, Vcl.ImgList, System.Actions, Vcl.ActnList, Vcl.Menus,
+  Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.ComCtrls, Vcl.Buttons;
+
+type
+  TFrm_Padrao1 = class(TFrm_Padrao)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Frm_Padrao1: TFrm_Padrao1;
+
+implementation
+
+{$R *.dfm}
+
+end.

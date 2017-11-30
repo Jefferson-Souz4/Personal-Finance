@@ -44,7 +44,6 @@ object DM: TDM
     Top = 32
   end
   object CDS_tb_User: TClientDataSet
-    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'DataSetProvider1'
@@ -89,7 +88,6 @@ object DM: TDM
   end
   object DataSetProvider1: TDataSetProvider
     DataSet = SQLDataSet1
-    Options = [poAllowCommandText, poUseQuoteChar]
     Left = 112
     Top = 176
   end

@@ -163,9 +163,9 @@ begin
   with DBGrid1 do
   begin
     if Odd( DataSource.DataSet.RecNo) then
-      Canvas.Brush.Color := $00FFEFDF
+      Canvas.Brush.Color := clSilver
     else
-      Canvas.Brush.Color := clwhite;
+      Canvas.Brush.Color := clMoneyGreen;
 
     Canvas.FillRect(Rect);
     DefaultDrawColumnCell(Rect,DataCol,Column,State);

@@ -91,9 +91,7 @@ begin
   Begin
     Try
     if Application.MessageBox('Atenção, Você não definiu nenhum valor para pesquisa, dependendo da quantidade de registros pode demorar alguns minutos!!', 'Atenção', MB_YESNO+MB_ICONQUESTION)= mrYes  then
-    DM.CDS_tb_User.Close;
-    Dm.CDS_tb_User.CommandText := 'Select * From tb_user';
-    DM.CDS_tb_User.Open;
+    Buscartudo;
     Edt_filtrar.SetFocus;
     Finally
       Abort
@@ -114,13 +112,13 @@ end;
 procedure TFrm_Cad_Usuario.FormCreate(Sender: TObject);
 begin
   inherited;
-  Buscartudo;
+//  Buscartudo;
 end;
 
 procedure TFrm_Cad_Usuario.ActDeletarExecute(Sender: TObject);
 begin
   inherited;
-  Buscartudo;
+ // Buscartudo;
 end;
 
 procedure TFrm_Cad_Usuario.ActEditarExecute(Sender: TObject);
@@ -136,10 +134,7 @@ end;
 procedure TFrm_Cad_Usuario.ActPesquisarExecute(Sender: TObject);
 begin
   inherited;
-  DM.CDS_tb_User.Close;
-  Dm.CDS_tb_User.CommandText := 'Select * From tb_user';
-  DM.CDS_tb_User.Open;
-  //Buscartudo;
+ // Buscartudo;
 end;
 
 procedure TFrm_Cad_Usuario.ActSalvarExecute(Sender: TObject);

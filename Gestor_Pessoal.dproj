@@ -116,7 +116,7 @@
             <Form>Frm_Padrao</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="DM\UDm.pas">
+        <DCCReference Include="DM\UDM.pas">
             <Form>DM</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
@@ -126,6 +126,10 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Classes\UFuncoes.pas"/>
+        <DCCReference Include="View\UCad_Contas_Banco.pas">
+            <Form>Frm_Cad_Banco</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

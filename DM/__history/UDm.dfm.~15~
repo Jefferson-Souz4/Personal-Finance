@@ -44,7 +44,6 @@ object DM: TDM
     Top = 32
   end
   object CDS_tb_User: TClientDataSet
-    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'DataSetProvider1'

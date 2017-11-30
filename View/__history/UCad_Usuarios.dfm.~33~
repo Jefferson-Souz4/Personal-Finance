@@ -151,6 +151,9 @@ inherited Frm_Cad_Usuario: TFrm_Cad_Usuario
         ExplicitWidth = 708
         inherited DBGrid1: TDBGrid
           DataSource = DS_TB
+          DrawingStyle = gdsGradient
+          GradientEndColor = clCream
+          GradientStartColor = clSkyBlue
           Columns = <
             item
               Expanded = False

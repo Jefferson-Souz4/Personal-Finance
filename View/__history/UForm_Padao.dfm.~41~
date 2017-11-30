@@ -1,214 +1,367 @@
-inherited Frm_Cad_Usuario: TFrm_Cad_Usuario
-  Caption = 'Cadastro Usu'#225'rios'
-  ClientHeight = 477
-  ClientWidth = 716
-  ExplicitWidth = 732
-  ExplicitHeight = 536
+object Frm_Padrao: TFrm_Padrao
+  Left = 0
+  Top = 0
+  Caption = 'Frm_Padrao'
+  ClientHeight = 558
+  ClientWidth = 701
+  Color = clMoneyGreen
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  KeyPreview = True
+  Menu = MainMenu1
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnKeyPress = FormKeyPress
   PixelsPerInch = 96
   TextHeight = 13
-  inherited StatusBar1: TStatusBar
-    Top = 458
-    Width = 716
-    ExplicitTop = 458
-    ExplicitWidth = 716
+  object StatusBar1: TStatusBar
+    Left = 0
+    Top = 539
+    Width = 701
+    Height = 19
+    Panels = <
+      item
+        Text = 'JFS Tecnologies Ltda.'
+        Width = 150
+      end
+      item
+        Text = 'Vers'#227'o: 10.0.0.1'
+        Width = 100
+      end
+      item
+        Alignment = taCenter
+        Text = 'Dia da Semana'
+        Width = 100
+      end
+      item
+        Alignment = taCenter
+        Text = 'Hora'
+        Width = 150
+      end
+      item
+        Text = 'Usu'#225'rio'
+        Width = 50
+      end>
   end
-  inherited Pnl_Titulo: TPanel
-    Width = 716
-    Caption = 'Cadastro de Usu'#225'rios'
-    ExplicitWidth = 716
+  object Pnl_Titulo: TPanel
+    Left = 0
+    Top = 0
+    Width = 701
+    Height = 35
+    Align = alTop
+    BevelInner = bvRaised
+    BevelKind = bkTile
+    Caption = 'Barra de T'#237'tulo'
+    Color = clSkyBlue
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clCream
+    Font.Height = -27
+    Font.Name = 'MS Reference Sans Serif'
+    Font.Style = []
+    ParentBackground = False
+    ParentFont = False
+    TabOrder = 1
   end
-  inherited Pnl_CadBotoes: TPanel
-    Width = 716
-    ExplicitWidth = 716
+  object Pnl_CadBotoes: TPanel
+    Left = 0
+    Top = 35
+    Width = 701
+    Height = 46
+    Align = alTop
+    Color = clMoneyGreen
+    ParentBackground = False
+    TabOrder = 2
+    object Sbtn_Novo: TSpeedButton
+      Left = 0
+      Top = 5
+      Width = 57
+      Height = 33
+      Cursor = crHandPoint
+      Action = ActNovo
+      Flat = True
+    end
+    object Sbtn_Editar: TSpeedButton
+      Left = 55
+      Top = 5
+      Width = 57
+      Height = 33
+      Cursor = crHandPoint
+      Action = ActEditar
+      Flat = True
+    end
+    object Sbtn_Deletar: TSpeedButton
+      Left = 110
+      Top = 5
+      Width = 67
+      Height = 33
+      Cursor = crHandPoint
+      Action = ActDeletar
+      Flat = True
+    end
+    object Sbtn_Salvar: TSpeedButton
+      Left = 175
+      Top = 5
+      Width = 65
+      Height = 33
+      Cursor = crHandPoint
+      Action = ActSalvar
+      Flat = True
+    end
+    object Sbtn_Cancelar: TSpeedButton
+      Left = 238
+      Top = 5
+      Width = 71
+      Height = 33
+      Cursor = crHandPoint
+      Action = ActCancelar
+      Flat = True
+    end
+    object Sbtn_Imprimir: TSpeedButton
+      Left = 380
+      Top = 5
+      Width = 67
+      Height = 33
+      Cursor = crHandPoint
+      Action = ActImprimir
+      Flat = True
+    end
+    object Sbtn_Pesquisar: TSpeedButton
+      Left = 307
+      Top = 5
+      Width = 75
+      Height = 33
+      Cursor = crHandPoint
+      Action = ActPesquisar
+      Flat = True
+    end
+    object Sbtn_Sair: TSpeedButton
+      Left = 445
+      Top = 5
+      Width = 50
+      Height = 33
+      Cursor = crHandPoint
+      Action = ActSair
+      Flat = True
+    end
   end
-  inherited PGC_1: TPageControl
-    Width = 716
-    Height = 377
-    ExplicitWidth = 716
-    ExplicitHeight = 377
-    inherited TBS_Cadastro: TTabSheet
-      ExplicitWidth = 708
-      ExplicitHeight = 349
-      inherited Pnl_CadCentral: TPanel
-        Width = 708
-        Height = 349
-        Font.Height = -13
-        Font.Name = 'MS Reference Sans Serif'
-        ParentFont = False
-        ExplicitWidth = 708
-        ExplicitHeight = 349
-        object lb_SobreNome: TLabel
+  object PGC_1: TPageControl
+    Left = 0
+    Top = 81
+    Width = 701
+    Height = 458
+    ActivePage = TBS_Pesquisa
+    Align = alClient
+    TabOrder = 3
+    object TBS_Cadastro: TTabSheet
+      Caption = 'Cadastro'
+      object Pnl_CadCentral: TPanel
+        Left = 0
+        Top = 0
+        Width = 693
+        Height = 430
+        Align = alClient
+        BevelInner = bvRaised
+        BevelKind = bkTile
+        Color = clMoneyGreen
+        ParentBackground = False
+        TabOrder = 0
+      end
+    end
+    object TBS_Pesquisa: TTabSheet
+      Caption = 'Pesquisa'
+      ImageIndex = 2
+      object Pnl_PesqCentral: TPanel
+        Left = 0
+        Top = 0
+        Width = 693
+        Height = 264
+        Align = alClient
+        BevelInner = bvRaised
+        BevelKind = bkTile
+        Color = clMoneyGreen
+        ParentBackground = False
+        TabOrder = 0
+        object lb_Pesq: TLabel
           Left = 16
-          Top = 69
-          Width = 79
-          Height = 16
-          Caption = 'Sobrenome:'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBackground
-          Font.Height = -13
-          Font.Name = 'MS Reference Sans Serif'
-          Font.Style = []
-          ParentFont = False
+          Top = 49
+          Width = 46
+          Height = 13
+          Caption = 'Pesquisar'
         end
-        object lb_Nome: TLabel
-          Left = 16
-          Top = 21
-          Width = 42
-          Height = 16
-          Caption = 'Nome:'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBackground
-          Font.Height = -13
-          Font.Name = 'MS Reference Sans Serif'
-          Font.Style = []
-          ParentFont = False
-        end
-        object lb_Login: TLabel
-          Left = 16
-          Top = 117
-          Width = 40
-          Height = 16
-          Caption = 'Login:'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBackground
-          Font.Height = -13
-          Font.Name = 'MS Reference Sans Serif'
-          Font.Style = []
-          ParentFont = False
-        end
-        object lb_Senha: TLabel
-          Left = 16
-          Top = 165
-          Width = 47
-          Height = 16
-          Caption = 'Senha:'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBackground
-          Font.Height = -13
-          Font.Name = 'MS Reference Sans Serif'
-          Font.Style = []
-          ParentFont = False
-        end
-        object Edt_Nome: TEdit
-          Left = 16
-          Top = 40
-          Width = 218
-          Height = 24
-          MaxLength = 50
+        object Btn_Filtar: TButton
+          Left = 366
+          Top = 66
+          Width = 75
+          Height = 25
+          Caption = 'Filtar'
           TabOrder = 0
         end
-        object Edt_SobreNome: TEdit
-          Left = 16
-          Top = 88
-          Width = 218
-          Height = 24
-          MaxLength = 50
+        object Edt_Filtrar: TEdit
+          Left = 139
+          Top = 68
+          Width = 221
+          Height = 21
           TabOrder = 1
         end
-        object Edt_Senha: TEdit
+        object Cb_Selecionar: TComboBox
           Left = 16
-          Top = 184
-          Width = 121
-          Height = 24
-          MaxLength = 20
-          PasswordChar = '*'
-          TabOrder = 3
-        end
-        object Edt_Login: TEdit
-          Left = 16
-          Top = 136
-          Width = 121
-          Height = 24
-          MaxLength = 20
+          Top = 68
+          Width = 117
+          Height = 21
+          Cursor = crHandPoint
+          Style = csDropDownList
+          Sorted = True
           TabOrder = 2
         end
       end
-    end
-    inherited TBS_Pesquisa: TTabSheet
-      ExplicitWidth = 708
-      ExplicitHeight = 349
-      inherited Pnl_PesqCentral: TPanel
-        Width = 708
-        Height = 183
-        ExplicitWidth = 708
-        ExplicitHeight = 183
-        inherited Btn_Filtar: TButton
-          OnClick = Btn_FiltarClick
+      object Pnl_PesqGrid: TPanel
+        Left = 0
+        Top = 264
+        Width = 693
+        Height = 166
+        Align = alBottom
+        BevelInner = bvRaised
+        BevelKind = bkTile
+        Color = clMoneyGreen
+        ParentBackground = False
+        TabOrder = 1
+        object lb_Nun_reg: TLabel
+          Left = 14
+          Top = 12
+          Width = 100
+          Height = 13
+          Caption = 'Numero de Registros'
         end
-        inherited Cb_Selecionar: TComboBox
-          ItemIndex = 0
-          Text = 'Login'
-          Items.Strings = (
-            'Login'
-            'Nome'
-            'SobreNome')
-        end
-      end
-      inherited Pnl_PesqGrid: TPanel
-        Top = 183
-        Width = 708
-        ExplicitTop = 183
-        ExplicitWidth = 708
-        inherited DBGrid1: TDBGrid
-          DataSource = DS_TB
+        object DBGrid1: TDBGrid
+          Left = 14
+          Top = 31
+          Width = 651
+          Height = 120
+          GradientEndColor = clCream
+          GradientStartColor = clSkyBlue
+          ReadOnly = True
+          TabOrder = 0
+          TitleFont.Charset = DEFAULT_CHARSET
+          TitleFont.Color = clWindowText
+          TitleFont.Height = -11
+          TitleFont.Name = 'Tahoma'
+          TitleFont.Style = []
           Columns = <
             item
               Expanded = False
               FieldName = 'Id'
-              Width = 47
+              Width = 43
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'Nome'
-              Width = 100
+              Width = 163
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'SobreNome'
-              Width = 152
+              Width = 154
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'Login'
-              Width = 68
+              Width = 101
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'Senha'
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'Status'
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'Data_Cadastro'
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'Hora_Cadastro'
+              Width = 132
               Visible = True
             end>
         end
       end
     end
   end
-  inherited ActionList1: TActionList
-    Left = 608
-    Top = 288
+  object DS_TB: TDataSource
+    DataSet = DM.CDS_tb_User
+    Left = 544
+    Top = 160
   end
-  inherited ImageList1: TImageList
-    Left = 584
-    Top = 352
+  object MainMenu1: TMainMenu
+    Left = 600
+    Top = 72
+    object IrPara1: TMenuItem
+      Caption = 'Ir Para'
+    end
+    object Sair1: TMenuItem
+      Caption = 'Sair'
+      OnClick = Sair1Click
+    end
+  end
+  object ActionList1: TActionList
+    Images = ImageList1
+    Left = 552
+    Top = 40
+    object ActNovo: TAction
+      Caption = 'Novo'
+      ImageIndex = 0
+      OnExecute = ActNovoExecute
+      OnUpdate = ActNovoUpdate
+    end
+    object ActEditar: TAction
+      Caption = 'Editar'
+      ImageIndex = 1
+      OnExecute = ActEditarExecute
+      OnUpdate = ActEditarUpdate
+    end
+    object ActDeletar: TAction
+      Caption = 'Deletar'
+      ImageIndex = 2
+      OnExecute = ActDeletarExecute
+      OnUpdate = ActDeletarUpdate
+    end
+    object ActSalvar: TAction
+      Caption = 'Salvar'
+      ImageIndex = 3
+      OnExecute = ActSalvarExecute
+      OnUpdate = ActSalvarUpdate
+    end
+    object ActCancelar: TAction
+      Caption = 'Cancelar'
+      ImageIndex = 4
+      OnExecute = ActCancelarExecute
+      OnUpdate = ActCancelarUpdate
+    end
+    object ActPesquisar: TAction
+      Caption = 'Pesquisar'
+      ImageIndex = 5
+      OnExecute = ActPesquisarExecute
+      OnUpdate = ActPesquisarUpdate
+    end
+    object ActImprimir: TAction
+      Caption = 'Imprimir'
+      ImageIndex = 6
+      OnExecute = ActImprimirExecute
+      OnUpdate = ActImprimirUpdate
+    end
+    object ActSair: TAction
+      Caption = 'Sair'
+      ImageIndex = 7
+      OnExecute = ActSairExecute
+      OnUpdate = ActSairUpdate
+    end
+  end
+  object ImageList1: TImageList
+    Height = 20
+    Width = 20
+    Left = 608
+    Top = 216
     Bitmap = {
-      494C010108001800600014001400FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101080018004C0014001400FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000500000003C0000000100200000000000004B
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -836,5 +989,10 @@ inherited Frm_Cad_Usuario: TFrm_Cad_Usuario
       1E000000C0003FFF0F0000001E000000C0003FFF9F0000001E000000E0007FFF
       FF8000101E000000F801FFFFFFFC03F03F000000FE07FFFFFFFC03F800000000
       00000000000000000000000000000000000000000000}
+  end
+  object Timer1: TTimer
+    OnTimer = Timer1Timer
+    Left = 592
+    Top = 144
   end
 end

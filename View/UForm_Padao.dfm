@@ -159,10 +159,6 @@ object Frm_Padrao: TFrm_Padrao
     TabOrder = 3
     object TBS_Cadastro: TTabSheet
       Caption = 'Cadastro'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Pnl_CadCentral: TPanel
         Left = 0
         Top = 0
@@ -179,10 +175,6 @@ object Frm_Padrao: TFrm_Padrao
     object TBS_Pesquisa: TTabSheet
       Caption = 'Pesquisa'
       ImageIndex = 2
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Pnl_PesqCentral: TPanel
         Left = 0
         Top = 0
@@ -202,7 +194,7 @@ object Frm_Padrao: TFrm_Padrao
           Caption = 'Pesquisar'
         end
         object Btn_Filtar: TButton
-          Left = 243
+          Left = 366
           Top = 66
           Width = 75
           Height = 25
@@ -210,11 +202,21 @@ object Frm_Padrao: TFrm_Padrao
           TabOrder = 0
         end
         object Edt_Filtrar: TEdit
-          Left = 16
+          Left = 139
           Top = 68
           Width = 221
           Height = 21
           TabOrder = 1
+        end
+        object Cb_Selecionar: TComboBox
+          Left = 16
+          Top = 68
+          Width = 117
+          Height = 21
+          Cursor = crHandPoint
+          Style = csDropDownList
+          Sorted = True
+          TabOrder = 2
         end
       end
       object Pnl_PesqGrid: TPanel
@@ -240,12 +242,17 @@ object Frm_Padrao: TFrm_Padrao
           Top = 31
           Width = 651
           Height = 120
+          DrawingStyle = gdsGradient
+          GradientEndColor = clCream
+          GradientStartColor = clSkyBlue
+          ReadOnly = True
           TabOrder = 0
           TitleFont.Charset = DEFAULT_CHARSET
           TitleFont.Color = clWindowText
           TitleFont.Height = -11
           TitleFont.Name = 'Tahoma'
           TitleFont.Style = []
+          OnDrawColumnCell = DBGrid1DrawColumnCell
           Columns = <
             item
               Expanded = False
@@ -299,8 +306,8 @@ object Frm_Padrao: TFrm_Padrao
   end
   object ActionList1: TActionList
     Images = ImageList1
-    Left = 344
-    Top = 152
+    Left = 552
+    Top = 40
     object ActNovo: TAction
       Caption = 'Novo'
       ImageIndex = 0
@@ -335,6 +342,7 @@ object Frm_Padrao: TFrm_Padrao
       Caption = 'Pesquisar'
       ImageIndex = 5
       OnExecute = ActPesquisarExecute
+      OnUpdate = ActPesquisarUpdate
     end
     object ActImprimir: TAction
       Caption = 'Imprimir'
@@ -355,7 +363,7 @@ object Frm_Padrao: TFrm_Padrao
     Left = 608
     Top = 216
     Bitmap = {
-      494C010108001800480014001400FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101080018004C0014001400FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000500000003C0000000100200000000000004B
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

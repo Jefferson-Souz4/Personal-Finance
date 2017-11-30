@@ -71,8 +71,6 @@ type
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure Sair1Click(Sender: TObject);
     procedure ActPesquisarUpdate(Sender: TObject);
-    procedure DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
-      DataCol: Integer; Column: TColumn; State: TGridDrawState);
   private
     { Private declarations }
     Imodo: Integer;
@@ -155,26 +153,6 @@ begin
 end;
 
 
-
-procedure TFrm_Padrao.DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
-  DataCol: Integer; Column: TColumn; State: TGridDrawState);
-begin
- begin
-  with DBGrid1 do
-  begin
-    if Odd( DataSource.DataSet.RecNo) then
-      Canvas.Brush.Color := $00FFEFDF
-    else
-      Canvas.Brush.Color := clwhite;
-
-    Canvas.FillRect(Rect);
-    DefaultDrawColumnCell(Rect,DataCol,Column,State);
-  end;
-end;
-
-
-
-end;
 
 procedure TFrm_Padrao.DesabilitaCampos;
 Var I:Integer;
@@ -376,8 +354,6 @@ begin
   PGC_1.ActivePage := TBS_Pesquisa;
   TClientDataSet(DS_TB.DataSet).Close;
   TClientDataSet(DS_TB.DataSet).Open;
-  Edt_Filtrar.Clear;
-
   Edt_Filtrar.Enabled:=True;
   Cb_Selecionar.Enabled := True;
   Btn_Filtar.Enabled := True;

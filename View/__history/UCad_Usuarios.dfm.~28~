@@ -132,17 +132,6 @@ inherited Frm_Cad_Usuario: TFrm_Cad_Usuario
         Height = 183
         ExplicitWidth = 708
         ExplicitHeight = 183
-        inherited Btn_Filtar: TButton
-          OnClick = Btn_FiltarClick
-        end
-        inherited Cb_Selecionar: TComboBox
-          ItemIndex = 0
-          Text = 'Login'
-          Items.Strings = (
-            'Login'
-            'Nome'
-            'SobreNome')
-        end
       end
       inherited Pnl_PesqGrid: TPanel
         Top = 183
@@ -151,6 +140,9 @@ inherited Frm_Cad_Usuario: TFrm_Cad_Usuario
         ExplicitWidth = 708
         inherited DBGrid1: TDBGrid
           DataSource = DS_TB
+          DrawingStyle = gdsGradient
+          GradientEndColor = clCream
+          GradientStartColor = clSkyBlue
           Columns = <
             item
               Expanded = False
@@ -199,6 +191,14 @@ inherited Frm_Cad_Usuario: TFrm_Cad_Usuario
         end
       end
     end
+  end
+  inherited Cb_Selecionar: TComboBox
+    ItemIndex = 0
+    Text = 'Login'
+    Items.Strings = (
+      'Login'
+      'Nome'
+      'SobreNome')
   end
   inherited ActionList1: TActionList
     Left = 608
