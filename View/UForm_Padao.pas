@@ -93,7 +93,9 @@ implementation
 
 {$R *.dfm}
 
-uses UDm, UTela_Inicial, UFuncoes, UCad_Usuarios, UCad_Contas_Banco;
+uses
+UTela_Inicial, UFuncoes, UCad_Usuarios, UCad_Contas_Banco, ULogin, UUsuarios;
+
 //-------------------Procedure--------------------------------------------------
 procedure TFrm_Padrao.LimparTudo;
 var

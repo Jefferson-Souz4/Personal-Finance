@@ -1,0 +1,18 @@
+unit UUsuarios;
+
+interface
+  Type
+  TUsuarios = Class
+  Private
+  Flogin : String;
+  FSenha : String;
+  Public
+  property Login: String read FLogin write Flogin;
+  property Senha: String read FSenha write FSenha;
+  function Logar: Boolean;
+  end;
+implementation
+
+
+
+end.

@@ -116,7 +116,7 @@
             <Form>Frm_Padrao</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="DM\UDM.pas">
+        <DCCReference Include="DM\ModConexao.pas">
             <Form>DM</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
@@ -130,6 +130,13 @@
             <Form>Frm_Cad_Banco</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="View\ULogin.pas">
+            <Form>Frm_Login</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\UUsuarios.pas"/>
+        <DCCReference Include="Classes\UGetConexao.pas"/>
+        <DCCReference Include="Classes\USQL.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

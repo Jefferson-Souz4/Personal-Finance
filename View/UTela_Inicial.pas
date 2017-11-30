@@ -38,6 +38,8 @@ type
     Series2: TPieSeries;
     FormulrioPadro1: TMenuItem;
     ipodeDespesa1: TMenuItem;
+    btn_Cad_Banco: TButton;
+    btn_login: TButton;
     procedure Btn_Frm_PadraoClick(Sender: TObject);
     procedure Btn_Cad_UserClick(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
@@ -45,6 +47,9 @@ type
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure Usurios1Click(Sender: TObject);
     procedure Sair1Click(Sender: TObject);
+    procedure btn_loginClick(Sender: TObject);
+    procedure btn_Cad_BancoClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -58,7 +63,8 @@ implementation
 
 {$R *.dfm}
 
-uses UDm, UForm_Padao, UCad_Usuarios;
+uses UForm_Padao, UCad_Usuarios, UCad_Contas_Banco, UFuncoes, ULogin,
+  ModConexao, UUsuarios;
 
 //----------------------Main Menu-----------------------------------------------
 procedure TFrm_Tela_Inicial.Usurios1Click(Sender: TObject);
@@ -87,14 +93,26 @@ begin
 
 end;
 
-//********************Fecha Main Menu*******************************************
+//********************Close Main Menu*******************************************
 
 
 
-//--------------------Eventos---------------------------------------------------
+//-------------------------Events-----------------------------------------------
+procedure TFrm_Tela_Inicial.FormCreate(Sender: TObject);
+begin
+Frm_Login:= TFrm_Login.Create(nil);
+    Try
+      Frm_login.ShowModal
+    Finally
+      FreeAndNil(Frm_login);
+    end;
+end;
+
+
+
 procedure TFrm_Tela_Inicial.FormClose(Sender: TObject;var Action: TCloseAction);
 begin
-  //Configuração Evento OnClose
+  //Event configuration  onclose
   if Application.MessageBox('Deseja Sair do Sistema?', 'Informação', MB_YESNO+MB_ICONQUESTION) = mrYes then
 
   Application.Terminate
@@ -102,14 +120,16 @@ begin
     Abort;
 end;
 
+
 procedure TFrm_Tela_Inicial.FormKeyPress(Sender: TObject; var Key: Char);
 begin
- //Configuração Evento OnKeyPress - Sair da Tela pelo Botão ESC
+ //Event Configuration OnKeyPress - Sair da Tela pelo Botão ESC
   if Key = #27 then
   Close;
 end;
 
-//********************Fecha Eventos*********************************************
+//********************Close Events Form*****************************************
+
 
 
 //---------------------Ação Execute Botões--------------------------------------
@@ -124,8 +144,31 @@ begin
     end;
 end;
 
+procedure TFrm_Tela_Inicial.btn_loginClick(Sender: TObject);
+begin
+  //Botão Abre Form Login
+  Frm_Login:= TFrm_Login.Create(nil);
+    Try
+      Frm_login.ShowModal
+    Finally
+      FreeAndNil(Frm_login);
+    end;
+end;
+
+procedure TFrm_Tela_Inicial.btn_Cad_BancoClick(Sender: TObject);
+begin
+//Botão Abre Form Cadastro Bancos
+  Frm_Cad_Banco:= TFrm_Cad_banco.Create(nil);
+    Try
+      Frm_Cad_Banco.ShowModal
+    Finally
+      FreeAndNil(Frm_Cad_Banco);
+    end;
+end;
+
 procedure TFrm_Tela_Inicial.Btn_Cad_UserClick(Sender: TObject);
 begin
+  //Botão Abre Form Cadastro Usuários
  Frm_Cad_Usuario:= TFrm_Cad_Usuario.Create(nil);
     Try
       Frm_Cad_Usuario.ShowModal

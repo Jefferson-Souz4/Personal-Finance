@@ -38,7 +38,7 @@ type
     Timer1: TTimer;
     PGC_1: TPageControl;
     TBS_Cadastro: TTabSheet;
-    DBGrid1: TDBGrid;
+    DBGDados: TDBGrid;
     Sair1: TMenuItem;
     TBS_Pesquisa: TTabSheet;
     Pnl_PesqCentral: TPanel;
@@ -70,6 +70,9 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure Sair1Click(Sender: TObject);
+    procedure ActPesquisarUpdate(Sender: TObject);
+    procedure DBGDadosDrawColumnCell(Sender: TObject; const Rect: TRect;
+      DataCol: Integer; Column: TColumn; State: TGridDrawState);
   private
     { Private declarations }
     Imodo: Integer;
@@ -90,7 +93,8 @@ implementation
 
 {$R *.dfm}
 
-uses UDm, UTela_Inicial;
+uses UTela_Inicial, UFuncoes, UCad_Usuarios, UCad_Contas_Banco, ModConexao,
+  ULogin, UUsuarios;
 //-------------------Procedure--------------------------------------------------
 procedure TFrm_Padrao.LimparTudo;
 var
@@ -153,6 +157,14 @@ end;
 
 
 
+procedure TFrm_Padrao.DBGDadosDrawColumnCell(Sender: TObject; const Rect: TRect;
+  DataCol: Integer; Column: TColumn; State: TGridDrawState);
+begin
+  // Função
+  EditarDBGrid(Ds_TB, DBGDados, State, Rect, Column);
+
+ end;
+
 procedure TFrm_Padrao.DesabilitaCampos;
 Var I:Integer;
 begin
@@ -167,10 +179,10 @@ end;
 
 
 
-//********************Fecha Procedure*******************************************
+//********************Close Procedure*******************************************
 
 
-//--------------------Eventos dos Botões----------------------------------------
+//--------------------Events Buttons--------------------------------------------
 
 
 
@@ -206,8 +218,15 @@ end;
 procedure TFrm_Padrao.ActCancelarUpdate(Sender: TObject);
 begin
  //Evento OnUpdate - Cancelar Só Ativado Quando Botão Novo for Clicado.
-  ActCancelar.Enabled := ActSalvar.Enabled = True;
+ // ActCancelar.Enabled := ActSalvar.Enabled = True;
 end;
+
+procedure TFrm_Padrao.ActPesquisarUpdate(Sender: TObject);
+begin
+//
+
+end;
+
 
 procedure TFrm_Padrao.ActImprimirUpdate(Sender: TObject);
 begin
@@ -254,10 +273,10 @@ begin
   TBS_Cadastro.TabVisible := True;
   TBS_Pesquisa.TabVisible := False;
   HabilitaCampos;
- // Sbtn_Editar.Enabled:=False;
- // Sbtn_Deletar.Enabled:=False;
- // Sbtn_Pesquisar.Enabled:=False;
-//  Sbtn_Imprimir.Enabled:=False;
+  Sbtn_Editar.Enabled:=False;
+  Sbtn_Deletar.Enabled:=False;
+  Sbtn_Pesquisar.Enabled:=False;
+  Sbtn_Imprimir.Enabled:=False;
 end;
 
 procedure TFrm_Padrao.ActEditarExecute(Sender: TObject);
@@ -268,8 +287,8 @@ begin
   PGC_1.ActivePage := TBS_Cadastro;
   TClientDataSet(DS_TB.DataSet).Edit;
   HabilitaCampos;
- // Sbtn_Pesquisar.Enabled:=False;
- // Sbtn_Imprimir.Enabled:=False;
+  Sbtn_Pesquisar.Enabled:=False;
+  Sbtn_Imprimir.Enabled:=False;
 end;
 
 
@@ -317,7 +336,7 @@ begin
   TBS_Cadastro.TabVisible := False; //Inserido
   TBS_Pesquisa.TabVisible := True; //Inserido
   Desabilitacampos;
-  //sbtn_pesquisar.Enabled:=True;
+  sbtn_pesquisar.Enabled:=True;
 end;
 
 
@@ -332,11 +351,13 @@ begin
   TBS_Pesquisa.TabVisible := True; //Inserido
   LimparTudo;
   DesabilitaCampos;
- // Sbtn_Novo.Enabled:=True;
- // Sbtn_Editar.Enabled:=True;
- // Sbtn_Deletar.Enabled:=True;
- // Sbtn_Pesquisar.Enabled:=True;
- // Sbtn_Imprimir.Enabled:=True;
+  Cb_Selecionar.Enabled:=False;
+  Btn_Filtar.Enabled:=False;
+  Sbtn_Novo.Enabled:=True;
+  Sbtn_Editar.Enabled:=True;
+  Sbtn_Deletar.Enabled:=True;
+  Sbtn_Pesquisar.Enabled:=True;
+  Sbtn_Imprimir.Enabled:=True;
 end;
 
  procedure TFrm_Padrao.ActPesquisarExecute(Sender: TObject);
@@ -346,11 +367,14 @@ begin
   PGC_1.ActivePage := TBS_Pesquisa;
   TClientDataSet(DS_TB.DataSet).Close;
   TClientDataSet(DS_TB.DataSet).Open;
+  Edt_Filtrar.Clear;
+
   Edt_Filtrar.Enabled:=True;
   Cb_Selecionar.Enabled := True;
   Btn_Filtar.Enabled := True;
   Edt_Filtrar.SetFocus;
 end;
+
 
 
 

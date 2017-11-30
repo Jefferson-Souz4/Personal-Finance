@@ -23,4 +23,6 @@ implementation
 
 {$R *.dfm}
 
+uses ModConexao, UCad_Usuarios, UFuncoes, ULogin, UTela_Inicial, UUsuarios;
+
 end.

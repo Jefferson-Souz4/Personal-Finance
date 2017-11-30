@@ -15,7 +15,7 @@ interface
 
 implementation
 
-uses UCad_Usuarios, UDm, UForm_Padao, UTela_Inicial;
+uses UCad_Usuarios, UForm_Padao, UTela_Inicial, ModConexao;
   //Função para auto incrementar o ID no Banco.
   Function GetId (Campos, Tabela : String) : Integer;
   Begin

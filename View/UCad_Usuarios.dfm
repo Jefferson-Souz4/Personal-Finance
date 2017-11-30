@@ -27,8 +27,8 @@ inherited Frm_Cad_Usuario: TFrm_Cad_Usuario
     ExplicitWidth = 716
     ExplicitHeight = 377
     inherited TBS_Cadastro: TTabSheet
-      ExplicitLeft = 0
-      ExplicitTop = 0
+      ExplicitLeft = 4
+      ExplicitTop = 24
       ExplicitWidth = 708
       ExplicitHeight = 349
       inherited Pnl_CadCentral: TPanel
@@ -180,11 +180,6 @@ inherited Frm_Cad_Usuario: TFrm_Cad_Usuario
             end
             item
               Expanded = False
-              FieldName = 'Senha'
-              Visible = True
-            end
-            item
-              Expanded = False
               FieldName = 'Status'
               Visible = True
             end
@@ -210,7 +205,7 @@ inherited Frm_Cad_Usuario: TFrm_Cad_Usuario
     Left = 584
     Top = 352
     Bitmap = {
-      494C010108001800640014001400FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101080018006C0014001400FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000500000003C0000000100200000000000004B
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

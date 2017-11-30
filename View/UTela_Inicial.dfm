@@ -15,6 +15,7 @@ object Frm_Tela_Inicial: TFrm_Tela_Inicial
   OldCreateOrder = False
   Position = poDesktopCenter
   OnClose = FormClose
+  OnCreate = FormCreate
   OnKeyPress = FormKeyPress
   PixelsPerInch = 96
   TextHeight = 13
@@ -43,7 +44,6 @@ object Frm_Tela_Inicial: TFrm_Tela_Inicial
     ParentBackground = False
     ParentFont = False
     TabOrder = 1
-    ExplicitWidth = 630
   end
   object Pnl_Botoes: TPanel
     Left = 0
@@ -56,7 +56,6 @@ object Frm_Tela_Inicial: TFrm_Tela_Inicial
     Color = clMoneyGreen
     ParentBackground = False
     TabOrder = 2
-    ExplicitHeight = 450
     object Sbtn_Receita: TSpeedButton
       Left = 8
       Top = 4
@@ -602,17 +601,33 @@ object Frm_Tela_Inicial: TFrm_Tela_Inicial
         Text = 'Usu'#225'rio:'
         Width = 200
       end>
-    ExplicitTop = 491
-    ExplicitWidth = 630
   end
   object Btn_Cad_User: TButton
     Left = 208
-    Top = 224
+    Top = 183
     Width = 75
     Height = 25
     Caption = 'Cad. User'
     TabOrder = 5
     OnClick = Btn_Cad_UserClick
+  end
+  object btn_Cad_Banco: TButton
+    Left = 208
+    Top = 90
+    Width = 75
+    Height = 25
+    Caption = 'Cad. Banco'
+    TabOrder = 6
+    OnClick = btn_Cad_BancoClick
+  end
+  object btn_login: TButton
+    Left = 208
+    Top = 121
+    Width = 75
+    Height = 25
+    Caption = 'Login'
+    TabOrder = 7
+    OnClick = btn_loginClick
   end
   object MainMenu1: TMainMenu
     Left = 352

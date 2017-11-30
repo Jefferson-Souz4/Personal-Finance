@@ -41,7 +41,8 @@ implementation
 
 {$R *.dfm}
 
-uses UDm, UTela_Inicial, UFuncoes, UCad_Contas_Banco;
+uses UTela_Inicial, UFuncoes, UCad_Contas_Banco, ModConexao, ULogin,
+  UUsuarios;
 //----------------------Procedure-----------------------------------------------
 procedure TFrm_Cad_Usuario.Buscartudo;
 begin

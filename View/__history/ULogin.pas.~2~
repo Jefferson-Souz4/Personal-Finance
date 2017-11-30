@@ -1,0 +1,28 @@
+unit ULogin;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TFrm_Login = class(TForm)
+    Edit1: TEdit;
+    Edit2: TEdit;
+    lb_Usuario: TLabel;
+    lb_Senha: TLabel;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Frm_Login: TFrm_Login;
+
+implementation
+
+{$R *.dfm}
+
+end.
