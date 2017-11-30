@@ -1,0 +1,92 @@
+unit UCad_Usuarios;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UForm_Padao, Data.DB, Datasnap.DBClient,
+  Vcl.ExtCtrls, System.ImageList, Vcl.ImgList, System.Actions, Vcl.ActnList,
+  Vcl.Menus, Vcl.StdCtrls, Vcl.Grids, Vcl.DBGrids, Vcl.ComCtrls, Vcl.Buttons;
+
+type
+  TFrm_Cad_Usuario = class(TFrm_Padrao)
+    Edt_Nome: TEdit;
+    Edt_SobreNome: TEdit;
+    Edt_Login: TEdit;
+    Edt_Senha: TEdit;
+    lb_Nome: TLabel;
+    lb_SobreNome: TLabel;
+    lb_Login: TLabel;
+    lb_Senha: TLabel;
+    Edt_Status: TEdit;
+    lb_Status: TLabel;
+    lb_data: TLabel;
+    Edt_Data: TEdit;
+    procedure ActSalvarExecute(Sender: TObject);
+//    procedure ActNovoExecute(Sender: TObject);
+  private
+    { Private declarations }
+
+  public
+    { Public declarations }
+  end;
+
+var
+  Frm_Cad_Usuario: TFrm_Cad_Usuario;
+
+implementation
+
+{$R *.dfm}
+
+uses UDm, UTela_Inicial, UFuncoes;
+
+
+procedure TFrm_Cad_Usuario.ActSalvarExecute(Sender: TObject);
+begin
+ {if Trim(Edt_Id.Text) = '' then
+  Begin
+    Application.MessageBox('Preencha o Campo Id', 'Aviso', MB_OK+MB_ICONWARNING);
+    Edt_Id.SetFocus;
+    Abort;
+  End;  }
+
+ if Trim(Edt_Nome.Text) = '' then
+  Begin
+    Application.MessageBox('Preencha o Campo Nome', 'Aviso', MB_OK+MB_ICONWARNING);
+    Edt_Nome.SetFocus;
+    Abort;
+  End;
+  if Trim(Edt_SobreNome.Text) = '' then
+  Begin
+    Application.MessageBox('Preencha o Campo SobreNome', 'Aviso', MB_OK+MB_ICONWARNING);
+   Edt_SobreNome.SetFocus;
+   Abort;
+  End;
+  if Trim(Edt_Login.Text) = '' then
+  Begin
+    Application.MessageBox('Preencha o Campo Login', 'Aviso', MB_OK+MB_ICONWARNING);
+    Edt_Login.SetFocus;
+    Abort;
+  End;
+  if Trim(Edt_Senha.Text) = '' then
+  Begin
+    Application.MessageBox('Preencha o Campo Senha', 'Aviso', MB_OK+MB_ICONWARNING);
+    Edt_Senha.SetFocus;
+    Abort;
+  End;
+
+  DM.CDS_tb_UserId.AsInteger := GetId ('ID', 'tb_user' );
+  DM.CDS_tb_UserNome.AsString := Trim (Edt_Nome.Text);
+  DM.CDS_tb_UserSobreNome.AsString := Trim (Edt_SobreNome.Text);
+  DM.CDS_tb_UserLogin.AsString := Trim (Edt_Login.Text);
+  DM.CDS_tb_UserSenha.AsString := Trim (Edt_Senha.Text);
+  DM.CDS_tb_UserStatus.AsString := Trim (Edt_Status.Text);
+  DM.CDS_tb_UserData_Cadastro.AsString := Trim (Edt_Data.Text);
+
+  inherited;
+
+end;
+
+
+
+end.

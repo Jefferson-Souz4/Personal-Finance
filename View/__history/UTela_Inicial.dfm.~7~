@@ -1,0 +1,112 @@
+object Frm_Tela_Inicial: TFrm_Tela_Inicial
+  Left = 0
+  Top = 0
+  Caption = 'Frm_Tela_Inicial'
+  ClientHeight = 510
+  ClientWidth = 630
+  Color = clMoneyGreen
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  Menu = MainMenu1
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Btn_Frm_Padrao: TButton
+    Left = 208
+    Top = 152
+    Width = 75
+    Height = 25
+    Caption = 'Form Padr'#227'o'
+    TabOrder = 0
+    OnClick = Btn_Frm_PadraoClick
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 630
+    Height = 41
+    Align = alTop
+    Caption = 'Meu Gerente Financeiro'
+    Color = clSkyBlue
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clCream
+    Font.Height = -27
+    Font.Name = 'MS Reference Sans Serif'
+    Font.Style = []
+    ParentBackground = False
+    ParentFont = False
+    TabOrder = 1
+    ExplicitTop = -6
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 41
+    Width = 97
+    Height = 450
+    Align = alLeft
+    BevelInner = bvRaised
+    BevelKind = bkTile
+    Color = clMoneyGreen
+    ParentBackground = False
+    TabOrder = 2
+  end
+  object Panel3: TPanel
+    Left = 445
+    Top = 41
+    Width = 185
+    Height = 450
+    Align = alRight
+    BevelInner = bvRaised
+    BevelKind = bkTile
+    Color = clMoneyGreen
+    ParentBackground = False
+    TabOrder = 3
+  end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Top = 491
+    Width = 630
+    Height = 19
+    Panels = <>
+    ExplicitLeft = 296
+    ExplicitTop = 408
+    ExplicitWidth = 0
+  end
+  object MainMenu1: TMainMenu
+    Left = 352
+    Top = 72
+    object Cadastro1: TMenuItem
+      Caption = 'Cadastro'
+      object ContasBancrias1: TMenuItem
+        Caption = 'Contas Banc'#225'rias'
+      end
+      object CartodeCrdito1: TMenuItem
+        Caption = 'Cart'#227'o de Cr'#233'dito'
+      end
+      object Usurios1: TMenuItem
+        Caption = 'Usu'#225'rios'
+      end
+    end
+    object Ferramentas1: TMenuItem
+      Caption = 'Ferramentas'
+      object Calculadora1: TMenuItem
+        Caption = 'Calculadora'
+      end
+    end
+    object Relatrio1: TMenuItem
+      Caption = 'Relat'#243'rio'
+    end
+    object Manuteno1: TMenuItem
+      Caption = 'Manuten'#231#227'o'
+    end
+    object Ajuda1: TMenuItem
+      Caption = 'Ajuda'
+    end
+    object Sair1: TMenuItem
+      Caption = 'Sair'
+    end
+  end
+end

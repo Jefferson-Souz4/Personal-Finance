@@ -1,0 +1,18 @@
+program Gestor_Pessoal;
+
+uses
+  Vcl.Forms,
+  UTela_Inicial in 'View\UTela_Inicial.pas' {Form1},
+  UForm_Padao in 'View\UForm_Padao.pas' {Frm_Padrao},
+  UDm in 'DM\UDm.pas' {DM: TDataModule},
+  UCad_Usuarios in 'View\UCad_Usuarios.pas' {Frm_Cad_Usuarios};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TDM, DM);
+  Application.Run;
+end.

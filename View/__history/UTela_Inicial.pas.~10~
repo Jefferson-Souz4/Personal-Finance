@@ -1,0 +1,66 @@
+unit UTela_Inicial;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Menus, Vcl.ExtCtrls,
+  Vcl.ComCtrls;
+
+type
+  TFrm_Tela_Inicial = class(TForm)
+    Btn_Frm_Padrao: TButton;
+    MainMenu1: TMainMenu;
+    Panel1: TPanel;
+    Cadastro1: TMenuItem;
+    Relatrio1: TMenuItem;
+    Manuteno1: TMenuItem;
+    Ajuda1: TMenuItem;
+    Sair1: TMenuItem;
+    ContasBancrias1: TMenuItem;
+    CartodeCrdito1: TMenuItem;
+    Usurios1: TMenuItem;
+    Ferramentas1: TMenuItem;
+    Calculadora1: TMenuItem;
+    Panel2: TPanel;
+    Panel3: TPanel;
+    StatusBar1: TStatusBar;
+    procedure Btn_Frm_PadraoClick(Sender: TObject);
+    procedure Btn_Cad_UserClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Frm_Tela_Inicial: TFrm_Tela_Inicial;
+
+implementation
+
+{$R *.dfm}
+
+uses UDm, UForm_Padao, UCad_Usuarios;
+
+procedure TFrm_Tela_Inicial.Btn_Frm_PadraoClick(Sender: TObject);
+begin
+Frm_padrao:= TFrm_padrao.Create(nil);
+  Try
+    Frm_Padrao.ShowModal
+  Finally
+     FreeAndNil(Frm_Padrao);
+
+  end;
+end;
+procedure TFrm_Tela_Inicial.Btn_Cad_UserClick(Sender: TObject);
+begin
+ Frm_Cad_Usuario:= TFrm_Cad_Usuario.Create(nil);
+  Try
+    Frm_Cad_Usuario.ShowModal
+  Finally
+     FreeAndNil(Frm_Cad_Usuario);
+
+  end;
+end;
+
+end.

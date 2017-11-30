@@ -1,0 +1,42 @@
+unit UDm;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.DBXMySQL, Data.FMTBcd, Data.DB,
+  Data.SqlExpr, Datasnap.Provider, Datasnap.DBClient;
+
+type
+  TDM = class(TDataModule)
+    SQLConnection1: TSQLConnection;
+    CDS_tb_User: TClientDataSet;
+    DataSetProvider1: TDataSetProvider;
+    SQLDataSet1: TSQLDataSet;
+    SQLDataSet1Id: TIntegerField;
+    SQLDataSet1Nome: TStringField;
+    SQLDataSet1SobreNome: TStringField;
+    SQLDataSet1Login: TStringField;
+    SQLDataSet1Senha: TStringField;
+    CDS_tb_UserId: TIntegerField;
+    CDS_tb_UserNome: TStringField;
+    CDS_tb_UserSobreNome: TStringField;
+    CDS_tb_UserLogin: TStringField;
+    CDS_tb_UserSenha: TStringField;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DM: TDM;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+uses UForm_Padao, UTela_Inicial, UCad_Usuarios;
+
+{$R *.dfm}
+
+end.

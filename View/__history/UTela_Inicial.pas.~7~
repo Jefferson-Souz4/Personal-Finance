@@ -1,0 +1,51 @@
+unit UTela_Inicial;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TFrm_Tela_Inicial = class(TForm)
+    Button1: TButton;
+    Button2: TButton;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Frm_Tela_Inicial: TFrm_Tela_Inicial;
+
+implementation
+
+{$R *.dfm}
+
+uses UDm, UForm_Padao, UCad_Usuarios;
+
+procedure TFrm_Tela_Inicial.Button1Click(Sender: TObject);
+begin
+Frm_padrao:= TFrm_padrao.Create(nil);
+  Try
+    Frm_Padrao.ShowModal
+  Finally
+     FreeAndNil(Frm_Padrao);
+
+  end;
+end;
+procedure TFrm_Tela_Inicial.Button2Click(Sender: TObject);
+begin
+ Frm_Cad_Usuarios:= TFrm_Cad_Usuarios.Create(nil);
+  Try
+    Frm_Cad_Usuarios.ShowModal
+  Finally
+     FreeAndNil(Frm_Cad_Usuarios);
+
+  end;
+end;
+
+end.
