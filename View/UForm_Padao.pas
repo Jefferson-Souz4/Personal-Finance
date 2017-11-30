@@ -38,7 +38,7 @@ type
     Timer1: TTimer;
     PGC_1: TPageControl;
     TBS_Cadastro: TTabSheet;
-    DBGrid1: TDBGrid;
+    DBGDados: TDBGrid;
     Sair1: TMenuItem;
     TBS_Pesquisa: TTabSheet;
     Pnl_PesqCentral: TPanel;
@@ -71,7 +71,7 @@ type
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure Sair1Click(Sender: TObject);
     procedure ActPesquisarUpdate(Sender: TObject);
-    procedure DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
+    procedure DBGDadosDrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
   private
     { Private declarations }
@@ -93,7 +93,7 @@ implementation
 
 {$R *.dfm}
 
-uses UDm, UTela_Inicial;
+uses UDm, UTela_Inicial, UFuncoes, UCad_Usuarios, UCad_Contas_Banco;
 //-------------------Procedure--------------------------------------------------
 procedure TFrm_Padrao.LimparTudo;
 var
@@ -156,25 +156,13 @@ end;
 
 
 
-procedure TFrm_Padrao.DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
+procedure TFrm_Padrao.DBGDadosDrawColumnCell(Sender: TObject; const Rect: TRect;
   DataCol: Integer; Column: TColumn; State: TGridDrawState);
 begin
- begin
-  with DBGrid1 do
-  begin
-    if Odd( DataSource.DataSet.RecNo) then
-      Canvas.Brush.Color := $00FFEFDF
-    else
-      Canvas.Brush.Color := clwhite;
+  // Função
+  EditarDBGrid(Ds_TB, DBGDados, State, Rect, Column);
 
-    Canvas.FillRect(Rect);
-    DefaultDrawColumnCell(Rect,DataCol,Column,State);
-  end;
-end;
-
-
-
-end;
+ end;
 
 procedure TFrm_Padrao.DesabilitaCampos;
 Var I:Integer;
@@ -190,10 +178,10 @@ end;
 
 
 
-//********************Fecha Procedure*******************************************
+//********************Close Procedure*******************************************
 
 
-//--------------------Eventos dos Botões----------------------------------------
+//--------------------Events Buttons--------------------------------------------
 
 
 
@@ -284,10 +272,10 @@ begin
   TBS_Cadastro.TabVisible := True;
   TBS_Pesquisa.TabVisible := False;
   HabilitaCampos;
- // Sbtn_Editar.Enabled:=False;
- // Sbtn_Deletar.Enabled:=False;
- // Sbtn_Pesquisar.Enabled:=False;
-//  Sbtn_Imprimir.Enabled:=False;
+  Sbtn_Editar.Enabled:=False;
+  Sbtn_Deletar.Enabled:=False;
+  Sbtn_Pesquisar.Enabled:=False;
+  Sbtn_Imprimir.Enabled:=False;
 end;
 
 procedure TFrm_Padrao.ActEditarExecute(Sender: TObject);
@@ -298,8 +286,8 @@ begin
   PGC_1.ActivePage := TBS_Cadastro;
   TClientDataSet(DS_TB.DataSet).Edit;
   HabilitaCampos;
- // Sbtn_Pesquisar.Enabled:=False;
- // Sbtn_Imprimir.Enabled:=False;
+  Sbtn_Pesquisar.Enabled:=False;
+  Sbtn_Imprimir.Enabled:=False;
 end;
 
 
@@ -347,7 +335,7 @@ begin
   TBS_Cadastro.TabVisible := False; //Inserido
   TBS_Pesquisa.TabVisible := True; //Inserido
   Desabilitacampos;
-  //sbtn_pesquisar.Enabled:=True;
+  sbtn_pesquisar.Enabled:=True;
 end;
 
 
@@ -362,11 +350,13 @@ begin
   TBS_Pesquisa.TabVisible := True; //Inserido
   LimparTudo;
   DesabilitaCampos;
- // Sbtn_Novo.Enabled:=True;
- // Sbtn_Editar.Enabled:=True;
- // Sbtn_Deletar.Enabled:=True;
- // Sbtn_Pesquisar.Enabled:=True;
- // Sbtn_Imprimir.Enabled:=True;
+  Cb_Selecionar.Enabled:=False;
+  Btn_Filtar.Enabled:=False;
+  Sbtn_Novo.Enabled:=True;
+  Sbtn_Editar.Enabled:=True;
+  Sbtn_Deletar.Enabled:=True;
+  Sbtn_Pesquisar.Enabled:=True;
+  Sbtn_Imprimir.Enabled:=True;
 end;
 
  procedure TFrm_Padrao.ActPesquisarExecute(Sender: TObject);

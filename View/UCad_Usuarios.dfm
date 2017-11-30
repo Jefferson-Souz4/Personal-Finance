@@ -27,6 +27,8 @@ inherited Frm_Cad_Usuario: TFrm_Cad_Usuario
     ExplicitWidth = 716
     ExplicitHeight = 377
     inherited TBS_Cadastro: TTabSheet
+      ExplicitLeft = 0
+      ExplicitTop = 0
       ExplicitWidth = 708
       ExplicitHeight = 349
       inherited Pnl_CadCentral: TPanel
@@ -149,7 +151,7 @@ inherited Frm_Cad_Usuario: TFrm_Cad_Usuario
         Width = 708
         ExplicitTop = 183
         ExplicitWidth = 708
-        inherited DBGrid1: TDBGrid
+        inherited DBGDados: TDBGrid
           DataSource = DS_TB
           Columns = <
             item
@@ -208,7 +210,7 @@ inherited Frm_Cad_Usuario: TFrm_Cad_Usuario
     Left = 584
     Top = 352
     Bitmap = {
-      494C010108001800600014001400FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010108001800640014001400FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000500000003C0000000100200000000000004B
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

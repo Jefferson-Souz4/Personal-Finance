@@ -11,8 +11,6 @@ interface
 
   Function GetId (Campos, Tabela : String) : Integer;
   Function GetVerifCadastroDuplicado (Login : String):Boolean;
-  Procedure EditarDBGrid (DataSource: TDataSource; Sender: TDBGrid; State : TGridDrawState; Rect : TRect; Column : TColumn);
-
 implementation
 
 uses UCad_Usuarios, UDm, UForm_Padao, UTela_Inicial;
@@ -52,22 +50,5 @@ uses UCad_Usuarios, UDm, UForm_Padao, UTela_Inicial;
       End;
 
   end;
-
-  Procedure EditarDBGrid (DataSource: TDataSource; Sender: TDBGrid; State : TGridDrawState; Rect : TRect; Column : TColumn);
-  Begin
-    if not odd(DataSource.Dataset.RecNo) then
-    Begin
-      if Not (GdSelected in State) then
-       Begin
-        Sender.Canvas.Brush.Color := $00FFEFDF ;
-        Sender.Canvas.FillRect(Rect);
-        Sender.DefaultDrawDataCell(Rect, Column.Field, State);
-
-       End;
-    End;
-
-  End;
-
-
 
 end.

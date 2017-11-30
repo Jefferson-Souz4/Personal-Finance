@@ -237,7 +237,7 @@ object Frm_Padrao: TFrm_Padrao
           Height = 13
           Caption = 'Numero de Registros'
         end
-        object DBGrid1: TDBGrid
+        object DBGDados: TDBGrid
           Left = 14
           Top = 31
           Width = 651
@@ -252,7 +252,7 @@ object Frm_Padrao: TFrm_Padrao
           TitleFont.Height = -11
           TitleFont.Name = 'Tahoma'
           TitleFont.Style = []
-          OnDrawColumnCell = DBGrid1DrawColumnCell
+          OnDrawColumnCell = DBGDadosDrawColumnCell
           Columns = <
             item
               Expanded = False
@@ -363,7 +363,7 @@ object Frm_Padrao: TFrm_Padrao
     Left = 608
     Top = 216
     Bitmap = {
-      494C0101080018004C0014001400FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010108001800500014001400FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000500000003C0000000100200000000000004B
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
