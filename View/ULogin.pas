@@ -28,7 +28,7 @@ implementation
 
 {$R *.dfm}
 
-uses UUsuarios;
+uses UUsuarios, ModConexao, UCad_Contas_Banco, UCad_Usuarios, UFuncoes, UGetConexao, USQL, UTela_Inicial, UForm_Padrao;
 
 //----------------------Button Action-------------------------------------------
 procedure TFrm_Login.Btn_EntrarClick(Sender: TObject);

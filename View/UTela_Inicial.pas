@@ -49,7 +49,7 @@ type
     procedure Sair1Click(Sender: TObject);
     procedure btn_loginClick(Sender: TObject);
     procedure btn_Cad_BancoClick(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -63,8 +63,8 @@ implementation
 
 {$R *.dfm}
 
-uses UForm_Padao, UCad_Usuarios, UCad_Contas_Banco, UFuncoes, ULogin,
-  ModConexao, UUsuarios;
+uses UForm_Padrao, UCad_Usuarios, UCad_Contas_Banco, UFuncoes, ULogin,
+  ModConexao, UUsuarios, UGetConexao, USQL;
 
 //----------------------Main Menu-----------------------------------------------
 procedure TFrm_Tela_Inicial.Usurios1Click(Sender: TObject);
@@ -98,17 +98,6 @@ end;
 
 
 //-------------------------Events-----------------------------------------------
-procedure TFrm_Tela_Inicial.FormCreate(Sender: TObject);
-begin
-Frm_Login:= TFrm_Login.Create(nil);
-    Try
-      Frm_login.ShowModal
-    Finally
-      FreeAndNil(Frm_login);
-    end;
-end;
-
-
 
 procedure TFrm_Tela_Inicial.FormClose(Sender: TObject;var Action: TCloseAction);
 begin
@@ -126,6 +115,18 @@ begin
  //Event Configuration OnKeyPress - Sair da Tela pelo Botão ESC
   if Key = #27 then
   Close;
+end;
+
+
+procedure TFrm_Tela_Inicial.FormShow(Sender: TObject);
+begin
+//Botão Abre Form Login
+  Frm_Login:= TFrm_Login.Create(nil);
+    Try
+      Frm_login.ShowModal
+    Finally
+      FreeAndNil(Frm_login);
+    end;
 end;
 
 //********************Close Events Form*****************************************
@@ -148,12 +149,14 @@ procedure TFrm_Tela_Inicial.btn_loginClick(Sender: TObject);
 begin
   //Botão Abre Form Login
   Frm_Login:= TFrm_Login.Create(nil);
-    Try
-      Frm_login.ShowModal
-    Finally
-      FreeAndNil(Frm_login);
-    end;
+  Try
+  Frm_login.ShowModal
+  Finally
+  FreeAndNil(Frm_login);
+  end;
 end;
+
+
 
 procedure TFrm_Tela_Inicial.btn_Cad_BancoClick(Sender: TObject);
 begin

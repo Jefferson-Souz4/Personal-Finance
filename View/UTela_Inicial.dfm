@@ -15,8 +15,8 @@ object Frm_Tela_Inicial: TFrm_Tela_Inicial
   OldCreateOrder = False
   Position = poDesktopCenter
   OnClose = FormClose
-  OnCreate = FormCreate
   OnKeyPress = FormKeyPress
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Btn_Frm_Padrao: TButton

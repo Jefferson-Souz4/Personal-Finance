@@ -112,7 +112,7 @@
             <Form>Frm_Tela_Inicial</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="View\UForm_Padao.pas">
+        <DCCReference Include="View\UForm_Padrao.pas">
             <Form>Frm_Padrao</Form>
             <FormType>dfm</FormType>
         </DCCReference>

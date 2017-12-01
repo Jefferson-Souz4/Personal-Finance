@@ -14,7 +14,8 @@ implementation
 
  { TSql }
 
-uses UGetConexao;
+uses UGetConexao, ModConexao, UCad_Contas_Banco, UCad_Usuarios, UForm_Padrao,
+  UFuncoes, ULogin, UTela_Inicial, UUsuarios;
 
 constructor TSql.Create(Aowner: TComponent);
 begin

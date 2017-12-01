@@ -5,12 +5,4 @@ inherited Frm_Cad_Banco: TFrm_Cad_Banco
   inherited Pnl_Titulo: TPanel
     Caption = 'Cadastro de Conta em Bancos'
   end
-  inherited PGC_1: TPageControl
-    inherited TBS_Cadastro: TTabSheet
-      ExplicitLeft = 4
-      ExplicitTop = 24
-      ExplicitWidth = 693
-      ExplicitHeight = 430
-    end
-  end
 end

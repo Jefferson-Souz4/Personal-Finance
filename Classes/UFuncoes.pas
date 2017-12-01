@@ -15,14 +15,15 @@ interface
 
 implementation
 
-uses UCad_Usuarios, UForm_Padao, UTela_Inicial, ModConexao;
+uses UCad_Usuarios, UForm_Padrao, UTela_Inicial, ModConexao, UCad_Contas_Banco,
+  UGetConexao, ULogin, USQL, UUsuarios;
   //Função para auto incrementar o ID no Banco.
   Function GetId (Campos, Tabela : String) : Integer;
   Begin
     With
     TSQLQuery.Create(nil) do
     Try
-      SQLconnection:= DM.SQLConnection1;
+      SQLconnection:= DM.SQLConnection;
       SQL.Add('Select '+Campos+' From '+Tabela+' ORder By '+Campos+' Desc Limit 1');
       Open;
       Result := Fields[0].AsInteger + 1;
@@ -40,7 +41,7 @@ uses UCad_Usuarios, UForm_Padao, UTela_Inicial, ModConexao;
     With
     TSQLQuery.Create(nil) do
       Try
-        SQLConnection :=DM.SQLConnection1;
+        SQLConnection :=DM.SQLConnection;
         SQL.ADD('Select Id From tb_user Where Login = :Login');
         Params [0].AsString := Login;
         Open;

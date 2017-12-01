@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UForm_Padao, Data.DB, Datasnap.DBClient,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UForm_Padrao, Data.DB, Datasnap.DBClient,
   Vcl.ExtCtrls, System.ImageList, Vcl.ImgList, System.Actions, Vcl.ActnList,
   Vcl.Menus, Vcl.StdCtrls, Vcl.Grids, Vcl.DBGrids, Vcl.ComCtrls, Vcl.Buttons;
 
@@ -42,7 +42,7 @@ implementation
 {$R *.dfm}
 
 uses UTela_Inicial, UFuncoes, UCad_Contas_Banco, ModConexao, ULogin,
-  UUsuarios;
+  UUsuarios, UGetConexao, USQL;
 //----------------------Procedure-----------------------------------------------
 procedure TFrm_Cad_Usuario.Buscartudo;
 begin

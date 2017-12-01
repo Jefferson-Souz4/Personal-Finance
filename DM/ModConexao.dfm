@@ -3,7 +3,7 @@ object DM: TDM
   OnCreate = DataModuleCreate
   Height = 510
   Width = 674
-  object SQLConnection1: TSQLConnection
+  object SQLConnection: TSQLConnection
     ConnectionName = 'gerenciador_financeiro'
     DriverName = 'MySQL'
     LoginPrompt = False
@@ -39,12 +39,10 @@ object DM: TDM
       'HostName=localhost'
       'Database=gerenciador_financeiro'
       'User_Name=root')
-    Connected = True
     Left = 56
     Top = 32
   end
   object CDS_tb_User: TClientDataSet
-    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'DataSetProvider1'
@@ -97,7 +95,7 @@ object DM: TDM
     CommandText = 'Select * From tb_user'
     MaxBlobSize = -1
     Params = <>
-    SQLConnection = SQLConnection1
+    SQLConnection = SQLConnection
     Left = 24
     Top = 176
     object SQLDataSet1Id: TIntegerField
@@ -146,6 +144,7 @@ object DM: TDM
     Top = 32
   end
   object DStb_user: TDataSource
+    DataSet = Fdtb_user
     Left = 552
     Top = 40
   end

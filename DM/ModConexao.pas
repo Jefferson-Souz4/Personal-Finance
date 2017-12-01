@@ -13,7 +13,7 @@ uses
 
 type
   TDM = class(TDataModule)
-    SQLConnection1: TSQLConnection;
+    SQLConnection: TSQLConnection;
     CDS_tb_User: TClientDataSet;
     DataSetProvider1: TDataSetProvider;
     SQLDataSet1: TSQLDataSet;
@@ -52,7 +52,8 @@ implementation
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
-uses UForm_Padao, UTela_Inicial, UCad_Usuarios;
+uses UForm_Padrao, UTela_Inicial, UCad_Usuarios, UCad_Contas_Banco, UFuncoes,
+  UGetConexao, ULogin, USQL, UUsuarios;
 
 {$R *.dfm}
 

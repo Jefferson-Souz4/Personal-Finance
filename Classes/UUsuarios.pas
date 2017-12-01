@@ -21,13 +21,16 @@ interface
  implementation
 
 uses
-  USQL, Data.SqlExpr;
+  Data.SqlExpr, ModConexao, UCad_Contas_Banco, UCad_Usuarios, UForm_Padrao,
+  UFuncoes, UGetConexao, ULogin, UTela_Inicial;
 
    Function TUsuario.Logar: Boolean;
    Begin
-     With TSqlQuery.Create(Nil) do
+     with TSqlQuery.Create(nil) do
      Try
-       SQL.Add('Select ID From tb_user Where Login = :Login And Senha = :Senha');
+       SQLConnection := DM.SQLConnection;
+       SQLConnection.Close;
+       Sql.Add('SELECT ID FROM TB_USER WHERE LOGIN = :LOGIN AND SENHA = :SENHA');
        Params[0].AsString := FLogin;
        Params[1].AsString := FSenha;
        Open;

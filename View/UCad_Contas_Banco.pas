@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UForm_Padao, Data.DB, Vcl.ExtCtrls,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UForm_Padrao, Data.DB, Vcl.ExtCtrls,
   System.ImageList, Vcl.ImgList, System.Actions, Vcl.ActnList, Vcl.Menus,
   Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.ComCtrls, Vcl.Buttons;
 
@@ -23,6 +23,7 @@ implementation
 
 {$R *.dfm}
 
-uses ModConexao, UCad_Usuarios, UFuncoes, ULogin, UTela_Inicial, UUsuarios;
+uses ModConexao, UCad_Usuarios, UFuncoes, ULogin, UTela_Inicial, UUsuarios,
+  UGetConexao, USQL;
 
 end.

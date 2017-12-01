@@ -28,7 +28,8 @@ implementation
 
 {$R *.dfm}
 
-uses UUsuarios;
+uses UUsuarios, ModConexao, UCad_Contas_Banco, UCad_Usuarios, UForm_Padao,
+  UFuncoes, UGetConexao, USQL, UTela_Inicial;
 
 //----------------------Button Action-------------------------------------------
 procedure TFrm_Login.Btn_EntrarClick(Sender: TObject);
@@ -37,13 +38,13 @@ var
 begin
   if Edt_Login.Text = '' then
     Begin
-      Application.MessageBox('Informe o Login Cadastrado!', 'Aten√ß√£o', Mb_ok+MB_ICONWARNING);
+      Application.MessageBox('Informe o Login Cadastrado!', 'AtenÁ„o', Mb_ok+MB_ICONWARNING);
       Edt_Login.SetFocus;
       Abort
     End;
   if Edt_Senha.Text = '' then
     Begin
-      Application.MessageBox('Informe o Senha Cadastrado!', 'Aten√ß√£o', Mb_ok+MB_ICONWARNING);
+      Application.MessageBox('Informe o Senha Cadastrado!', 'AtenÁ„o', Mb_ok+MB_ICONWARNING);
       Edt_Senha.SetFocus;
       Abort
     End;
@@ -59,7 +60,7 @@ begin
         end
       Else
         Begin
-          Application.MessageBox('Usu√°rio e/ou Senha Inv√°lidos.', 'Aten√ß√£o', MB_OK+MB_ICONWARNING);
+          Application.MessageBox('Usu·rio e/ou Senha Inv·lidos.', 'AtenÁ„o', MB_OK+MB_ICONWARNING);
           Edt_Login.SetFocus;
           Abort;
         End;
