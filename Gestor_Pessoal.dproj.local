@@ -37,8 +37,8 @@
     <Transaction>2017/11/30 14:41:47.000.161,C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Gestor Pessoal\Classes\UGetConexao.pas=C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Gestor Pessoal\Unit1.pas</Transaction>
     <Transaction>2017/11/30 14:45:11.000.071,=C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Gestor Pessoal\Unit1.pas</Transaction>
     <Transaction>2017/11/30 14:45:31.000.878,C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Gestor Pessoal\Classes\USQL.pas=C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Gestor Pessoal\Unit1.pas</Transaction>
-    <Transaction>2017/11/30 23:21:36.848,C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Gestor Pessoal\View\UForm_Padrao.pas=C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Gestor Pessoal\View\UForm_Padao.pas</Transaction>
-    <Transaction>2017/11/30 23:21:36.848,C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Gestor Pessoal\View\UForm_Padrao.dfm=C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Gestor Pessoal\View\UForm_Padao.dfm</Transaction>
+    <Transaction>2017/11/30 23:21:36.000.848,C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Gestor Pessoal\View\UForm_Padrao.dfm=C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Gestor Pessoal\View\UForm_Padao.dfm</Transaction>
+    <Transaction>2017/11/30 23:21:36.000.848,C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Gestor Pessoal\View\UForm_Padrao.pas=C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Gestor Pessoal\View\UForm_Padao.pas</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="Classes"/>

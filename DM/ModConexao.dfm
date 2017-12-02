@@ -93,10 +93,11 @@ object DM: TDM
   end
   object SQLDataSet1: TSQLDataSet
     CommandText = 'Select * From tb_user'
+    DbxCommandType = ''
     MaxBlobSize = -1
     Params = <>
     SQLConnection = SQLConnection
-    Left = 24
+    Left = 32
     Top = 176
     object SQLDataSet1Id: TIntegerField
       FieldName = 'Id'
@@ -138,7 +139,6 @@ object DM: TDM
       'User_Name=root'
       'Password=123'
       'DriverID=MySQL')
-    Connected = True
     LoginPrompt = False
     Left = 464
     Top = 32
