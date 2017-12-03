@@ -1,0 +1,40 @@
+object DM: TDM
+  OldCreateOrder = False
+  OnCreate = DataModuleCreate
+  Height = 510
+  Width = 674
+  object FdConctn: TFDConnection
+    Params.Strings = (
+      'Database=gerenciador_financeiro'
+      'User_Name=root'
+      'Password=123'
+      'DriverID=MySQL')
+    LoginPrompt = False
+    Left = 464
+    Top = 32
+  end
+  object DStb_user: TDataSource
+    DataSet = Fdtb_user
+    Left = 552
+    Top = 40
+  end
+  object SQLtb_user: TFDQuery
+    Connection = FdConctn
+    Left = 464
+    Top = 128
+  end
+  object Fdtb_user: TFDTable
+    Connection = FdConctn
+    UpdateOptions.UpdateTableName = 'gerenciador_financeiro.tb_user'
+    TableName = 'gerenciador_financeiro.tb_user'
+    Left = 560
+    Top = 128
+  end
+  object Driver: TFDPhysMySQLDriverLink
+    VendorLib = 
+      'C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\G' +
+      'estor Pessoal\Lib\libmySQL.dll'
+    Left = 624
+    Top = 40
+  end
+end

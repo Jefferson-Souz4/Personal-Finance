@@ -1,0 +1,14 @@
+program Gestor_Pessoal;
+
+uses
+  Vcl.Forms,
+  uTela_Principal in 'View\uTela_Principal.pas' {Frm_Tela_Principal};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TFrm_Tela_Principal, Frm_Tela_Principal);
+  Application.Run;
+end.

@@ -1,0 +1,92 @@
+object Frm_Tela_Principal: TFrm_Tela_Principal
+  Left = 0
+  Top = 0
+  Caption = 'Minhas Finan'#231'as'
+  ClientHeight = 524
+  ClientWidth = 702
+  Color = clMoneyGreen
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  KeyPreview = True
+  Menu = MainMenu1
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Pnl_Barra_Titulo: TPanel
+    Left = 0
+    Top = 0
+    Width = 702
+    Height = 41
+    Align = alTop
+    BevelInner = bvRaised
+    BevelKind = bkTile
+    Caption = 'Meu Gerente Financeiro'
+    Color = clSkyBlue
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -24
+    Font.Name = 'MS Reference Sans Serif'
+    Font.Style = [fsBold]
+    ParentBackground = False
+    ParentFont = False
+    TabOrder = 0
+  end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Top = 505
+    Width = 702
+    Height = 19
+    Panels = <>
+    ExplicitLeft = 472
+    ExplicitTop = 504
+    ExplicitWidth = 0
+  end
+  object Pnl_Botoes: TPanel
+    Left = 0
+    Top = 41
+    Width = 702
+    Height = 64
+    Align = alTop
+    BevelInner = bvSpace
+    BevelKind = bkSoft
+    BevelOuter = bvSpace
+    Color = clMoneyGreen
+    ParentBackground = False
+    TabOrder = 2
+  end
+  object MainMenu1: TMainMenu
+    Left = 480
+    Top = 104
+    object Cadastro1: TMenuItem
+      Caption = 'Cadastro'
+      object Usurios1: TMenuItem
+        Caption = 'Usu'#225'rios'
+      end
+      object Banco1: TMenuItem
+        Caption = 'Conta Banc'#225'ria'
+      end
+    end
+    object Ferramentas1: TMenuItem
+      Caption = 'Ferramentas'
+      object Calculadora1: TMenuItem
+        Caption = 'Calculadora'
+      end
+    end
+    object Relatrios1: TMenuItem
+      Caption = 'Relat'#243'rios'
+    end
+    object Manuteno1: TMenuItem
+      Caption = 'Manuten'#231#227'o'
+    end
+    object Ajuda1: TMenuItem
+      Caption = 'Ajuda'
+    end
+    object Sair1: TMenuItem
+      Caption = 'Sair'
+    end
+  end
+end

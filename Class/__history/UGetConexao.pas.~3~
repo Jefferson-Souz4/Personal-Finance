@@ -1,0 +1,29 @@
+unit UGetConexao;
+
+interface
+
+uses
+  Data.SqlExpr;
+
+type TGetConexao = class
+
+public
+function Conexao : TSqlConnection;
+End;
+implementation
+ uses  ModConexao;
+
+
+{ TGetConexao }
+
+
+class function TGetConexao.Conexao: TSqlConnection;
+
+begin
+
+result := DM.SQLConnection1;
+
+end;
+
+
+end.

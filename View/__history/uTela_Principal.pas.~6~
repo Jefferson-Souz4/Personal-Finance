@@ -1,0 +1,57 @@
+unit uTela_Principal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Menus, Vcl.ComCtrls,
+  Vcl.Buttons, System.ImageList, Vcl.ImgList, VclTee.TeeGDIPlus, Data.DB,
+  VCLTee.TeEngine, VCLTee.TeeProcs, VCLTee.Chart, VCLTee.DBChart, VCLTee.Series;
+
+type
+  TFrm_Tela_Principal = class(TForm)
+    MainMenu1: TMainMenu;
+    Cadastro1: TMenuItem;
+    Ferramentas1: TMenuItem;
+    Ajuda1: TMenuItem;
+    Relatrios1: TMenuItem;
+    Sair1: TMenuItem;
+    Manuteno1: TMenuItem;
+    Usurios1: TMenuItem;
+    Banco1: TMenuItem;
+    Calculadora1: TMenuItem;
+    Pnl_Barra_Titulo: TPanel;
+    StatusBar1: TStatusBar;
+    Pnl_Botoes: TPanel;
+    Sbtn_Receita: TSpeedButton;
+    Sbtn_Despesa: TSpeedButton;
+    Sbtn_Relatorio: TSpeedButton;
+    Sbtn_investimento: TSpeedButton;
+    Sbtn_Poupanca: TSpeedButton;
+    Pnl_Graficos: TPanel;
+    DBChart1: TDBChart;
+    Series1: TBarSeries;
+    DBChart2: TDBChart;
+    BarSeries1: TBarSeries;
+    Timer1: TTimer;
+    procedure Timer1Timer(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Frm_Tela_Principal: TFrm_Tela_Principal;
+
+implementation
+
+{$R *.dfm}
+//------------------------Settings StatusBar------------------------------------
+procedure TFrm_Tela_Principal.Timer1Timer(Sender: TObject);
+begin
+  Statusbar1.Panels [2].Text :=FormatDateTime('DDDD', Now);// para data
+  Statusbar1.Panels [3].Text := DateTimeToStr(now);//para hora
+end;
+//*********************Close StatusBar******************************************
+end.
