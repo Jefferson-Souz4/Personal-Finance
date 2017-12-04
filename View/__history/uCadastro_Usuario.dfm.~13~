@@ -1,7 +1,5 @@
 inherited Frm_Cadastro_Usuario: TFrm_Cadastro_Usuario
   Caption = 'Cadastro de Usu'#225'rio'
-  ExplicitWidth = 711
-  ExplicitHeight = 571
   PixelsPerInch = 96
   TextHeight = 13
   inherited pnl_Barra_Titulo: TPanel
@@ -9,13 +7,7 @@ inherited Frm_Cadastro_Usuario: TFrm_Cadastro_Usuario
   end
   inherited pg_Padrao: TPageControl
     inherited tb_Cadastro: TTabSheet
-      ExplicitLeft = 4
-      ExplicitTop = 24
-      ExplicitWidth = 687
-      ExplicitHeight = 376
       inherited pnl_Cad_Centro: TPanel
-        ExplicitLeft = -160
-        ExplicitTop = -66
         object lb_Nome: TLabel
           Left = 16
           Top = 29
@@ -51,7 +43,7 @@ inherited Frm_Cadastro_Usuario: TFrm_Cadastro_Usuario
           Height = 13
           Caption = 'Senha'
         end
-        object DBEdit1: TDBEdit
+        object dbe_Nome: TDBEdit
           Left = 16
           Top = 48
           Width = 225
@@ -60,7 +52,7 @@ inherited Frm_Cadastro_Usuario: TFrm_Cadastro_Usuario
           DataSource = DS_TB
           TabOrder = 0
         end
-        object DBEdit2: TDBEdit
+        object dbe_sobreNome: TDBEdit
           Left = 16
           Top = 96
           Width = 225
@@ -69,7 +61,7 @@ inherited Frm_Cadastro_Usuario: TFrm_Cadastro_Usuario
           DataSource = DS_TB
           TabOrder = 1
         end
-        object DBEdit3: TDBEdit
+        object dbe_Data_Nascimento: TDBEdit
           Left = 16
           Top = 144
           Width = 121
@@ -78,7 +70,7 @@ inherited Frm_Cadastro_Usuario: TFrm_Cadastro_Usuario
           DataSource = DS_TB
           TabOrder = 2
         end
-        object DBEdit4: TDBEdit
+        object dbe_Login: TDBEdit
           Left = 16
           Top = 196
           Width = 225
@@ -87,7 +79,7 @@ inherited Frm_Cadastro_Usuario: TFrm_Cadastro_Usuario
           DataSource = DS_TB
           TabOrder = 3
         end
-        object DBEdit5: TDBEdit
+        object dbe_Senha: TDBEdit
           Left = 16
           Top = 242
           Width = 157
@@ -100,10 +92,83 @@ inherited Frm_Cadastro_Usuario: TFrm_Cadastro_Usuario
       end
     end
     inherited tb_Pesquisa: TTabSheet
-      ExplicitLeft = 4
-      ExplicitTop = 24
-      ExplicitWidth = 687
-      ExplicitHeight = 376
+      inherited pnl_Pes_Centro: TPanel
+        Height = 192
+        ExplicitHeight = 192
+        inherited sbtn_Filtrar: TSpeedButton
+          OnClick = sbtn_FiltrarClick
+        end
+        inherited rdg_Selecionar: TRadioGroup
+          Items.Strings = (
+            'Nome'
+            'SobreNome'
+            'Login')
+        end
+      end
+      inherited pnl_grid: TPanel
+        Top = 192
+        Height = 184
+        ExplicitTop = 192
+        ExplicitHeight = 184
+        inherited dbg_Dados: TDBGrid
+          Height = 139
+          Columns = <
+            item
+              Expanded = False
+              FieldName = 'Id'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'Nome'
+              Width = 182
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'SobreNome'
+              Width = 193
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'Login'
+              Width = 89
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'Senha'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'Data_Cadastro'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'Hora_Cadastro'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'Data_Nascimento'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'Usuario'
+              Width = 52
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'Status'
+              Visible = True
+            end>
+        end
+      end
     end
   end
   inherited MainMenu1: TMainMenu
@@ -118,7 +183,7 @@ inherited Frm_Cadastro_Usuario: TFrm_Cadastro_Usuario
     Left = 632
     Top = 352
     Bitmap = {
-      494C010108001800480010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010108001800540010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000003000000001002000000000000030
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -526,6 +591,7 @@ inherited Frm_Cadastro_Usuario: TFrm_Cadastro_Usuario
     Top = 296
   end
   inherited DS_TB: TDataSource
+    DataSet = DM.FT_tbUsuario
     Left = 632
     Top = 176
   end

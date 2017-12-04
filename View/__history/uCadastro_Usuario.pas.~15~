@@ -124,18 +124,18 @@ begin
     case rdg_Selecionar.ItemIndex of
       0:
       begin
-      SQL.Add('Where Nome Like :vNome');
-      ParamByName('vNome').value:= '%'+ edt_Filtrar.Text + '%';
+      SQL.Add('Where Nome Like:Nome');
+      ParamByName('Nome').value:= '%'+ edt_Filtrar.Text + '%';
       end;
       1: //SobreNome
         begin
-          SQL.Add('where SobreNome Like :vSobreNome');
-          ParamByName('vSobreNome').Value := '%'+ edt_Filtrar.Text + '%';
+          SQL.Add('where SobreNome =:SobreNome');
+          ParamByName('SobreNome').Value :=edt_Filtrar.Text;
         end;
         2: //Login
           Begin
-            SQL.Add('where Login Like :vLogin');
-            ParamByName('vLogin').Value := '%'+ edt_Filtrar.Text + '%';
+            SQL.Add('where Login =:Login');
+            ParamByName('Login').Value :=edt_Filtrar.Text;
           End;
     end;
     DM.FQ_tbUsuario.Open;

@@ -1,5 +1,7 @@
 inherited Frm_Cadastro_Usuario: TFrm_Cadastro_Usuario
   Caption = 'Cadastro de Usu'#225'rio'
+  ExplicitWidth = 711
+  ExplicitHeight = 571
   PixelsPerInch = 96
   TextHeight = 13
   inherited pnl_Barra_Titulo: TPanel
@@ -7,6 +9,10 @@ inherited Frm_Cadastro_Usuario: TFrm_Cadastro_Usuario
   end
   inherited pg_Padrao: TPageControl
     inherited tb_Cadastro: TTabSheet
+      ExplicitLeft = 4
+      ExplicitTop = 24
+      ExplicitWidth = 687
+      ExplicitHeight = 376
       inherited pnl_Cad_Centro: TPanel
         object lb_Nome: TLabel
           Left = 16
@@ -92,63 +98,30 @@ inherited Frm_Cadastro_Usuario: TFrm_Cadastro_Usuario
       end
     end
     inherited tb_Pesquisa: TTabSheet
+      ExplicitLeft = 4
+      ExplicitTop = 24
+      ExplicitWidth = 687
+      ExplicitHeight = 376
+      inherited pnl_Pes_Centro: TPanel
+        Height = 192
+        ExplicitHeight = 192
+        inherited sbtn_Filtrar: TSpeedButton
+          OnClick = sbtn_FiltrarClick
+        end
+        inherited rdg_Selecionar: TRadioGroup
+          Items.Strings = (
+            'Nome'
+            'SobreNome'
+            'Login')
+        end
+      end
       inherited pnl_grid: TPanel
+        Top = 192
+        Height = 184
+        ExplicitTop = 192
+        ExplicitHeight = 184
         inherited dbg_Dados: TDBGrid
-          Columns = <
-            item
-              Expanded = False
-              FieldName = 'Id'
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'Nome'
-              Width = 182
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'SobreNome'
-              Width = 193
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'Login'
-              Width = 89
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'Senha'
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'Data_Cadastro'
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'Hora_Cadastro'
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'Data_Nascimento'
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'Usuario'
-              Width = 52
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'Status'
-              Visible = True
-            end>
+          Height = 139
         end
       end
     end
@@ -165,7 +138,7 @@ inherited Frm_Cadastro_Usuario: TFrm_Cadastro_Usuario
     Left = 632
     Top = 352
     Bitmap = {
-      494C0101080018004C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010108001800580010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000003000000001002000000000000030
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

@@ -92,6 +92,7 @@
         <VerInfo_Keys>CompanyName=JFD TECNOLOGIES LTDA.;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.6;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <VerInfo_Build>6</VerInfo_Build>
         <Icon_MainIcon>Gestor_Pessoal_Icon.ico</Icon_MainIcon>
+        <VerInfo_Debug>true</VerInfo_Debug>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>

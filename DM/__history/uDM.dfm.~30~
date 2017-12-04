@@ -84,7 +84,6 @@ object DM: TDM
     end
   end
   object FT_tbUsuario: TFDTable
-    Active = True
     IndexFieldNames = 'Id'
     Connection = FDConnection
     UpdateOptions.UpdateTableName = 'gestor_financeiro.tb_usuario'

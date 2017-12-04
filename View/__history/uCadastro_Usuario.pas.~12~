@@ -23,8 +23,8 @@ type
     lb_Senha: TLabel;
     procedure actSalvarExecute(Sender: TObject);
     procedure actDeletarExecute(Sender: TObject);
+    procedure btn_FiltarClick(Sender: TObject);
     procedure sbtn_FiltrarClick(Sender: TObject);
-    procedure rdg_SelecionarClick(Sender: TObject);
   private
     { Private declarations }
     Procedure ContaRegistro;
@@ -75,46 +75,10 @@ begin
      End;
 
 end;
-procedure TFrm_Cadastro_Usuario.rdg_SelecionarClick(Sender: TObject);
+procedure TFrm_Cadastro_Usuario.sbtn_FiltrarClick(Sender: TObject);
 begin
   inherited;
-//Configuração das opções do Radio Group Consulta Banco
-    case rdg_Selecionar.ItemIndex of
-      0: //Nome
-      begin
-        edt_Filtrar.Visible:= True;
-        lb_Pesquisar.Caption :='Digite o Nome ';
-        lb_Pesquisar.Visible := True;
-        edt_Filtrar.Clear;
-        Sbtn_Filtrar.Enabled := True;
-        edt_Filtrar.SetFocus;
-
-      end;
-      1: //SobreNome
-      Begin
-        edt_Filtrar.Visible:= True;
-        lb_Pesquisar.Caption :='Digite o SobreNome';
-        lb_Pesquisar.Visible := True;
-        edt_Filtrar.Clear;
-        sbtn_Filtrar.Enabled := True;
-        edt_Filtrar.SetFocus;
-      End;
-      2: //Login
-      begin
-        edt_Filtrar.Visible:= True;
-        lb_Pesquisar.Caption :='Digite o Login';
-        lb_Pesquisar.Visible := True;
-        edt_Filtrar.Clear;
-        sbtn_Filtrar.Enabled := True;
-        edt_Filtrar.SetFocus;
-      end;
-    end;
-end;
-
-procedure TFrm_Cadastro_Usuario.sbtn_FiltrarClick(Sender: TObject);
-
-begin
-
+  //Configuração Botão Pesquisar
   With DM.FQ_tbUsuario do
   begin
     Close;
@@ -122,30 +86,28 @@ begin
     SQL.Add('Select * From tb_usuario');
 
     case rdg_Selecionar.ItemIndex of
-      0:
+      0: //Nome
       begin
-      SQL.Add('Where Nome Like :vNome');
-      ParamByName('vNome').value:= '%'+ edt_Filtrar.Text + '%';
+        SQL.Add('where Nome Like :Nome');
+        ParamByName('Nome').Value := '%'+ edt_Filtrar.Text + '%';
       end;
-      1: //SobreNome
+        1: //SobreNome
         begin
-          SQL.Add('where SobreNome Like :vSobreNome');
-          ParamByName('vSobreNome').Value := '%'+ edt_Filtrar.Text + '%';
+          SQL.Add('where SobreNome =:SobreNome');
+          ParamByName('SobreNome').Value := edt_Filtrar.Text;
         end;
-        2: //Login
+          2: //Login
           Begin
-            SQL.Add('where Login Like :vLogin');
-            ParamByName('vLogin').Value := '%'+ edt_Filtrar.Text + '%';
+            SQL.Add('where Login =:Login');
+            ParamByName('Login').Value := edt_Filtrar.Text;
           End;
     end;
-    DM.FQ_tbUsuario.Open;
-    ContaRegistro;
-    inherited;
-  end;
 
+     Open;
+
+     ContaRegistro;
+  End;
 end;
-
-
 
 //********************Close Procedure*******************************************
 
@@ -213,7 +175,11 @@ begin
 
   inherited;
 end;
+procedure TFrm_Cadastro_Usuario.btn_FiltarClick(Sender: TObject);
+begin
+  inherited;
 
+end;
 
 //********************Close Events Button***************************************
 

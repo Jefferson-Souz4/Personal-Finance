@@ -13,6 +13,7 @@ uses
 
 type
   TDM = class(TDataModule)
+    SQLConnection1: TSQLConnection;
     FDGUIxErrorDialog1: TFDGUIxErrorDialog;
     FDGUIxLoginDialog1: TFDGUIxLoginDialog;
     FDGUIxWaitCursor1: TFDGUIxWaitCursor;

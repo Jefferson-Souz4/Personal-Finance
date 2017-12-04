@@ -129,13 +129,13 @@ begin
       end;
       1: //SobreNome
         begin
-          SQL.Add('where SobreNome Like :vSobreNome');
-          ParamByName('vSobreNome').Value := '%'+ edt_Filtrar.Text + '%';
+          SQL.Add('where SobreNome =:vSobreNome');
+          ParamByName('vSobreNome').Value :=edt_Filtrar.Text;
         end;
         2: //Login
           Begin
-            SQL.Add('where Login Like :vLogin');
-            ParamByName('vLogin').Value := '%'+ edt_Filtrar.Text + '%';
+            SQL.Add('where Login =:vLogin');
+            ParamByName('vLogin').Value :=edt_Filtrar.Text;
           End;
     end;
     DM.FQ_tbUsuario.Open;
