@@ -1,0 +1,198 @@
+object DM: TDM
+  OldCreateOrder = False
+  Height = 452
+  Width = 725
+  object SQLConnection1: TSQLConnection
+    ConnectionName = 'MySQLConnection'
+    DriverName = 'MySQL'
+    LoginPrompt = False
+    Params.Strings = (
+      'DriverUnit=Data.DBXMySQL'
+      
+        'DriverPackageLoader=TDBXDynalinkDriverLoader,DbxCommonDriver250.' +
+        'bpl'
+      
+        'DriverAssemblyLoader=Borland.Data.TDBXDynalinkDriverLoader,Borla' +
+        'nd.Data.DbxCommonDriver,Version=24.0.0.0,Culture=neutral,PublicK' +
+        'eyToken=91d62ebb5b0d1b1b'
+      
+        'MetaDataPackageLoader=TDBXMySqlMetaDataCommandFactory,DbxMySQLDr' +
+        'iver250.bpl'
+      
+        'MetaDataAssemblyLoader=Borland.Data.TDBXMySqlMetaDataCommandFact' +
+        'ory,Borland.Data.DbxMySQLDriver,Version=24.0.0.0,Culture=neutral' +
+        ',PublicKeyToken=91d62ebb5b0d1b1b'
+      'GetDriverFunc=getSQLDriverMYSQL'
+      'LibraryName=dbxmys.dll'
+      'LibraryNameOsx=libsqlmys.dylib'
+      'VendorLib=LIBMYSQL.dll'
+      'VendorLibWin64=libmysql.dll'
+      'VendorLibOsx=libmysqlclient.dylib'
+      'MaxBlobSize=-1'
+      'DriverName=MySQL'
+      'HostName=localhost'
+      'Database=gerenciador_financeiro'
+      'User_Name=root'
+      'Password=123'
+      'ServerCharSet='
+      'BlobSize=-1'
+      'ErrorResourceFile='
+      'LocaleCode=0000'
+      'Compressed=False'
+      'Encrypted=False'
+      'ConnectTimeout=60')
+    Left = 584
+    Top = 32
+  end
+  object FDGUIxErrorDialog1: TFDGUIxErrorDialog
+    Provider = 'Forms'
+    Left = 72
+    Top = 416
+  end
+  object FDGUIxLoginDialog1: TFDGUIxLoginDialog
+    Provider = 'Forms'
+    Left = 152
+    Top = 400
+  end
+  object FDGUIxWaitCursor1: TFDGUIxWaitCursor
+    Provider = 'Forms'
+    Left = 280
+    Top = 392
+  end
+  object FDConnection: TFDConnection
+    Params.Strings = (
+      'Database=gestor_financeiro'
+      'User_Name=root'
+      'DriverID=MySQL')
+    LoginPrompt = False
+    Left = 16
+    Top = 16
+  end
+  object DS_tbUsuario: TDataSource
+    DataSet = FQ_tbUsuario
+    Left = 104
+    Top = 120
+  end
+  object FQ_tbUsuario: TFDQuery
+    Connection = FDConnection
+    SQL.Strings = (
+      'Select * From tb_usuario')
+    Left = 24
+    Top = 120
+    object FQ_tbUsuarioId: TFDAutoIncField
+      DisplayLabel = 'N'#186' Registro'
+      FieldName = 'Id'
+      ReadOnly = True
+    end
+    object FQ_tbUsuarioNome: TStringField
+      FieldName = 'Nome'
+      Required = True
+      Size = 40
+    end
+    object FQ_tbUsuarioSobreNome: TStringField
+      FieldName = 'SobreNome'
+      Required = True
+      Size = 40
+    end
+    object FQ_tbUsuarioLogin: TStringField
+      FieldName = 'Login'
+      Required = True
+    end
+    object FQ_tbUsuarioSenha: TStringField
+      FieldName = 'Senha'
+      Required = True
+    end
+    object FQ_tbUsuarioData_Cadastro: TDateField
+      DisplayLabel = 'Data do Cadastro'
+      FieldName = 'Data_Cadastro'
+    end
+    object FQ_tbUsuarioHora_Cadastro: TTimeField
+      DisplayLabel = 'Hora do Cadastro'
+      FieldName = 'Hora_Cadastro'
+    end
+    object FQ_tbUsuarioData_Nascimento: TDateField
+      DisplayLabel = 'Data de Nascimento'
+      FieldName = 'Data_Nascimento'
+    end
+    object FQ_tbUsuarioUsuario: TStringField
+      DisplayLabel = 'Usu'#225'rio'
+      FieldName = 'Usuario'
+    end
+    object FQ_tbUsuarioStatus: TStringField
+      FieldName = 'Status'
+      Size = 1
+    end
+  end
+  object FT_tbUsuario: TFDTable
+    IndexFieldNames = 'Id'
+    Connection = FDConnection
+    UpdateOptions.UpdateTableName = 'gestor_financeiro.tb_usuario'
+    TableName = 'gestor_financeiro.tb_usuario'
+    Left = 176
+    Top = 120
+    object FT_tbUsuarioId: TFDAutoIncField
+      DisplayLabel = 'N'#186' Registro'
+      FieldName = 'Id'
+      Origin = 'Id'
+      ReadOnly = True
+    end
+    object FT_tbUsuarioNome: TStringField
+      FieldName = 'Nome'
+      Origin = 'Nome'
+      Required = True
+      Size = 40
+    end
+    object FT_tbUsuarioSobreNome: TStringField
+      FieldName = 'SobreNome'
+      Origin = 'SobreNome'
+      Required = True
+      Size = 40
+    end
+    object FT_tbUsuarioLogin: TStringField
+      FieldName = 'Login'
+      Origin = 'Login'
+      Required = True
+    end
+    object FT_tbUsuarioSenha: TStringField
+      FieldName = 'Senha'
+      Origin = 'Senha'
+      Required = True
+    end
+    object FT_tbUsuarioData_Cadastro: TDateField
+      AutoGenerateValue = arDefault
+      DisplayLabel = 'Data do Cadastro'
+      FieldName = 'Data_Cadastro'
+      Origin = 'Data_Cadastro'
+    end
+    object FT_tbUsuarioHora_Cadastro: TTimeField
+      AutoGenerateValue = arDefault
+      DisplayLabel = 'Hora do Cadastro'
+      FieldName = 'Hora_Cadastro'
+      Origin = 'Hora_Cadastro'
+    end
+    object FT_tbUsuarioData_Nascimento: TDateField
+      AutoGenerateValue = arDefault
+      DisplayLabel = 'Data de Nascimento'
+      FieldName = 'Data_Nascimento'
+      Origin = 'Data_Nascimento'
+    end
+    object FT_tbUsuarioUsuario: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'Usuario'
+      Origin = 'Usuario'
+    end
+    object FT_tbUsuarioStatus: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'Status'
+      Origin = 'Status'
+      Size = 1
+    end
+  end
+  object Driver: TFDPhysMySQLDriverLink
+    VendorLib = 
+      'C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\G' +
+      'estor Pessoal\Lib\libmySQL.dll'
+    Left = 80
+    Top = 16
+  end
+end

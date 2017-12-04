@@ -78,7 +78,7 @@ object DM: TDM
     Connection = FDConnection
     SQL.Strings = (
       'Select * From tb_usuario')
-    Left = 24
+    Left = 176
     Top = 120
     object FQ_tbUsuarioId: TFDAutoIncField
       DisplayLabel = 'N'#186' Registro'
@@ -125,17 +125,17 @@ object DM: TDM
     end
   end
   object FT_tbUsuario: TFDTable
-    Active = True
     IndexFieldNames = 'Id'
     Connection = FDConnection
     UpdateOptions.UpdateTableName = 'gestor_financeiro.tb_usuario'
     TableName = 'gestor_financeiro.tb_usuario'
-    Left = 176
+    Left = 24
     Top = 120
     object FT_tbUsuarioId: TFDAutoIncField
       DisplayLabel = 'N'#186' Registro'
       FieldName = 'Id'
       Origin = 'Id'
+      ReadOnly = True
     end
     object FT_tbUsuarioNome: TStringField
       FieldName = 'Nome'
@@ -195,5 +195,61 @@ object DM: TDM
       'estor Pessoal\Lib\libmySQL.dll'
     Left = 80
     Top = 16
+  end
+  object FQ_tbConta: TFDQuery
+    Connection = FDConnection
+    SQL.Strings = (
+      'Select * from tb_conta')
+    Left = 168
+    Top = 200
+    object FQ_tbContaid: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
+    end
+    object FQ_tbContaNome_Banco: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'Nome_Banco'
+      Origin = 'Nome_Banco'
+      Size = 50
+    end
+    object FQ_tbContaCodigo_Banco: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'Codigo_Banco'
+      Origin = 'Codigo_Banco'
+      Size = 50
+    end
+  end
+  object DS_tbConta: TDataSource
+    DataSet = FQ_tbConta
+    Left = 96
+    Top = 200
+  end
+  object FT_tbConta: TFDTable
+    IndexFieldNames = 'id'
+    Connection = FDConnection
+    UpdateOptions.UpdateTableName = 'gestor_financeiro.tb_conta'
+    TableName = 'gestor_financeiro.tb_conta'
+    Left = 24
+    Top = 200
+    object FT_tbContaid: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
+    end
+    object FT_tbContaNome_Banco: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'Nome_Banco'
+      Origin = 'Nome_Banco'
+      Size = 50
+    end
+    object FT_tbContaCodigo_Banco: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'Codigo_Banco'
+      Origin = 'Codigo_Banco'
+      Size = 50
+    end
   end
 end

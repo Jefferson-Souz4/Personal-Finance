@@ -1,0 +1,468 @@
+unit uForm_Padrao;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Menus, Vcl.StdCtrls,
+  System.Actions, Vcl.ActnList, System.ImageList, Vcl.ImgList, Vcl.ToolWin,
+  Vcl.ComCtrls, Vcl.Buttons, Data.DB, Vcl.Mask, Vcl.DBCtrls, Datasnap.DBClient,
+  Vcl.Grids, Vcl.DBGrids;
+
+type
+  TFrm_Padrao = class(TForm)
+    MainMenu1: TMainMenu;
+    IrPara1: TMenuItem;
+    Sair1: TMenuItem;
+    pnl_Barra_Titulo: TPanel;
+    ActionList1: TActionList;
+    ImageList1: TImageList;
+    actNovo: TAction;
+    actEditar: TAction;
+    actSalvar: TAction;
+    actDeletar: TAction;
+    actCancelar: TAction;
+    actPesquisar: TAction;
+    actImprimir: TAction;
+    actSair: TAction;
+    StatusBar1: TStatusBar;
+    pg_Padrao: TPageControl;
+    tb_Cadastro: TTabSheet;
+    tb_Pesquisa: TTabSheet;
+    pnl_Botoes: TPanel;
+    Sbtn_Novo: TSpeedButton;
+    Sbtn_Editar: TSpeedButton;
+    Sbtn_Salvar: TSpeedButton;
+    Sbtn_Cancelar: TSpeedButton;
+    Sbtn_Deletar: TSpeedButton;
+    Sbtn_Pesquisar: TSpeedButton;
+    Sbtn_Imprimir: TSpeedButton;
+    Sbtn_Sair: TSpeedButton;
+    Timer1: TTimer;
+    DS_TB: TDataSource;
+    pnl_Cad_Centro: TPanel;
+    pnl_Pes_Centro: TPanel;
+    pnl_grid: TPanel;
+    dbg_Dados: TDBGrid;
+    rdg_Selecionar: TRadioGroup;
+    lb_NRegistro: TLabel;
+    lb_Pesquisar: TLabel;
+    edt_Filtrar: TEdit;
+    btn_Filtar: TBitBtn;
+    procedure Timer1Timer(Sender: TObject);
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
+    procedure FormCreate(Sender: TObject);
+    procedure Sair1Click(Sender: TObject);
+    procedure rdg_SelecionarClick(Sender: TObject);
+    procedure dbg_DadosDrawColumnCell(Sender: TObject; const Rect: TRect;
+      DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    procedure actNovoExecute(Sender: TObject);
+    procedure actEditarExecute(Sender: TObject);
+    procedure actSalvarExecute(Sender: TObject);
+    procedure actDeletarExecute(Sender: TObject);
+    procedure actCancelarExecute(Sender: TObject);
+    procedure actPesquisarExecute(Sender: TObject);
+    procedure actImprimirExecute(Sender: TObject);
+    procedure actSairExecute(Sender: TObject);
+    procedure actNovoUpdate(Sender: TObject);
+    procedure actEditarUpdate(Sender: TObject);
+    procedure actSalvarUpdate(Sender: TObject);
+    procedure actDeletarUpdate(Sender: TObject);
+    procedure actCancelarUpdate(Sender: TObject);
+    procedure actPesquisarUpdate(Sender: TObject);
+    procedure actImprimirUpdate(Sender: TObject);
+    procedure actSairUpdate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+    Imodo: Integer;
+    Procedure LimparTudo;
+    procedure ColocarFoco(Sender: TObject);
+    procedure SairFoco(Sender: TObject);
+    Procedure HabilitaCampos;
+    Procedure DesabilitaCampos;
+
+  public
+    { Public declarations }
+  end;
+
+var
+  Frm_Padrao: TFrm_Padrao;
+
+implementation
+
+{$R *.dfm}
+
+uses uDM, uFuncoes, uCadastro_Banco, uTela_Principal;
+
+{ TFrm_Padrao }
+//-------------------Procedure--------------------------------------------------
+
+
+procedure TFrm_Padrao.ColocarFoco(Sender: TObject);
+begin
+//Procedure Colocar em Foco
+   if Sender is TDBEdit then
+    TDBEdit(Sender).Color := $00E6FED8
+  else if Sender is TEdit then
+    TEdit(Sender).Color := $00E6FED8
+  else if Sender is TDBLookupComboBox then
+    TDBLookupComboBox(Sender).Color := $00E6FED8
+  else if Sender is TDBComboBox then
+    TDBComboBox(Sender).Color := $00E6FED8
+  else if Sender is TDBMemo then
+    TDBMemo(Sender).Color := $00E6FED8;
+end;
+
+
+
+procedure TFrm_Padrao.SairFoco(Sender: TObject);
+begin
+  //Procedure Sair de Foco
+  if Sender is TDBEdit then
+    TDBEdit(Sender).Color := clWindow
+  else if Sender is TEdit then
+    TEdit(Sender).Color := clWindow
+  else if Sender is TDBLookupComboBox then
+    TDBLookupComboBox(Sender).Color := clWindow
+  else if Sender is TDBComboBox then
+    TDBComboBox(Sender).Color := clWindow
+  else if Sender is TDBMemo then
+end;
+
+procedure TFrm_Padrao.HabilitaCampos;
+  //Procedure Habilita Campos
+  Var
+    I:Integer;
+begin
+  for I := 0 to ComponentCount -1 do
+    begin
+      if (Components[i] is TEdit) then
+      TEdit(Components[i]).Enabled := True;
+    end;
+end;
+
+procedure TFrm_Padrao.DesabilitaCampos;
+  //Procedure desabilita Campos
+  Var
+    I:Integer;
+begin
+  for I := 0 to ComponentCount -1 do
+    begin
+      if (Components[i] is TEdit) then
+      TEdit (Components[i]).Enabled := False;
+    end;
+end;
+
+
+
+procedure TFrm_Padrao.LimparTudo;
+  //Procedure LimparCampos
+  var
+    I: Integer;
+begin
+ for I := 0 to ComponentCount -1 do
+  Begin
+    if (Components[i] is TEdit) then
+       TEdit(Components[i]).Text := '';
+
+  End;
+    if pg_Padrao.ActivePage = TB_Cadastro then
+     pg_Padrao.ActivePage := TB_Pesquisa;
+end;
+
+procedure TFrm_Padrao.rdg_SelecionarClick(Sender: TObject);
+begin
+  //
+end;
+
+
+procedure TFrm_Padrao.dbg_DadosDrawColumnCell(Sender: TObject;
+  const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
+begin
+ // Função
+  EditarDBGrid(Ds_TB, dbg_Dados, State, Rect, Column);
+end;
+
+
+
+
+//********************Close Procedure*******************************************
+
+//----------------------Event Form----------------------------------------------
+procedure TFrm_Padrao.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+//Evento OnClose, Fecha o Form.
+  TClientDataSet(DS_TB.DataSet).Cancel;
+  TClientDataSet(DS_TB.DataSet).Close;
+end;
+
+procedure TFrm_Padrao.FormCreate(Sender: TObject);
+//Settings For Color Focus in Components
+  var
+    I: Integer;
+begin
+  for I := 0 to ComponentCount - 1 do
+  begin
+    if Components[I] is TDBEdit then
+    begin
+      TDBEdit(Components[I]).OnEnter  := ColocarFoco;
+      TDBEdit(Components[I]).OnExit   := SairFoco;
+    end
+    Else
+    if Components[I] is TEdit then
+    begin
+      TEdit(Components[I]).OnEnter  := ColocarFoco;
+      TEdit(Components[I]).OnExit   := SairFoco;
+    end
+    else
+    if Components[I] is TDBLookupComboBox then
+    begin
+      TDBLookupComboBox(Components[I]).OnEnter := ColocarFoco;
+      TDBLookupComboBox(Components[I]).OnExit  := SairFoco;
+    end
+    else
+    if Components[I] is TDBComboBox then
+    begin
+      TDBComboBox(Components[I]).OnEnter := ColocarFoco;
+      TDBComboBox(Components[I]).OnExit  := SairFoco;
+    end
+    else
+    if Components[I] is TDBMemo then
+    begin
+      TDBMemo(Components[I]).OnEnter   := ColocarFoco;
+      TDBMemo(Components[I]).OnExit    := SairFoco;
+    end
+  end;
+  DesabilitaCampos;
+  pg_Padrao.TabIndex     := 0; //Inserido
+  tb_Cadastro.TabVisible := False; //Inserido
+  tb_Pesquisa.TabVisible := True; //Inserido
+  btn_Filtar.Enabled := False;
+end;
+
+procedure TFrm_Padrao.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+//Configuração Evento OnKeyPress - Sair da Tela pelo Botão ESC
+  If Key = #27 then
+      Close;
+ //Após Clicar no Enter o Cursor Avança para o próximo Edit
+  if Key = #13 then
+    begin
+      Key := #0;
+      self.Perform(WM_NEXTDLGCTL,0,0);
+    end;
+end;
+
+//********************Close Events Form*****************************************
+
+
+
+
+
+
+//--------------------Config Buttom_--------------------------------------------
+
+
+procedure TFrm_Padrao.actNovoExecute(Sender: TObject);
+begin
+  // Configuração Botão Novo
+  Imodo := 0;
+  if not TClientDataSet(DS_TB).Active then
+  TClientDataSet(DS_TB.DataSet).Open;
+  TClientDataSet(DS_TB.DataSet).Insert;
+  pg_padrao.TabIndex     := 0;
+  tb_Cadastro.TabVisible := True;
+  tb_Pesquisa.TabVisible := False;
+  HabilitaCampos;
+  Sbtn_Editar.Enabled:=False;
+  Sbtn_Deletar.Enabled:=False;
+  Sbtn_Pesquisar.Enabled:=False;
+  Sbtn_Imprimir.Enabled:=False;
+end;
+
+procedure TFrm_Padrao.actNovoUpdate(Sender: TObject);
+begin
+  //Evento OnUpdate Botão Novo
+  ActNovo.Enabled := DS_TB.State in [dsBrowse, dsInactive];
+end;
+
+
+procedure TFrm_Padrao.actEditarExecute(Sender: TObject);
+begin
+ //Configuração Botão Editar
+  Imodo:= 1;
+  if Pg_padrao.ActivePage = tb_Pesquisa then
+  pg_padrao.ActivePage := tb_Cadastro;
+  TClientDataSet(DS_TB.DataSet).Edit;
+  HabilitaCampos;
+  Sbtn_Pesquisar.Enabled:=False;
+  Sbtn_Imprimir.Enabled:=False;
+end;
+
+procedure TFrm_Padrao.actEditarUpdate(Sender: TObject);
+begin
+  //Configuração Evento OnUpdate Botão Editar
+  If (DS_TB.State in [DSBrowse]) and (not TClientDataSet(DS_TB.DataSet).IsEmpty) then
+  ActEditar.Enabled := DS_TB.State in [DSBrowse];
+end;
+
+procedure TFrm_Padrao.actSalvarExecute(Sender: TObject);
+begin
+  // Configuração Botão Salvar
+  try
+  TClientDataSet(DS_TB.DataSet).Post;
+  TclientDataSet(DS_TB.DataSet).ApplyUpdates(0);
+    case imodo of
+      1 : Application.MessageBox('Registro Atualizado com Sucesso!', 'Informação', MB_OK+MB_ICONINFORMATION);
+      0 : Application.MessageBox('Registro Criado com Sucesso!', 'Informação', MB_OK+MB_ICONINFORMATION);
+    end;
+
+
+    LimparTudo;
+    TClientDataSet(DS_TB.DataSet).Open;
+
+
+    Except on E : Exception do
+    raise exception.create ('Erro ao Salvar o Registro : ' + E.Message);
+
+  end;
+  Pg_Padrao.TabIndex     := 0; //Inserido
+  tb_Cadastro.TabVisible := False; //Inserido
+  tb_Pesquisa.TabVisible := True; //Inserido
+  Desabilitacampos;
+  sbtn_pesquisar.Enabled:=True;
+
+end;
+
+procedure TFrm_Padrao.actSalvarUpdate(Sender: TObject);
+begin
+ //Configuração Evento OnUpdate Botão SALVAR
+  ActSalvar.Enabled := DS_TB.State in [DSInsert, DSEdit];
+end;
+
+procedure TFrm_Padrao.actDeletarExecute(Sender: TObject);
+begin
+  //Configuração Botão Deletar
+  if Application.MessageBox ('Deseja Realmente Excluir os Registros?', 'Informação', MB_YESNO+MB_ICONQUESTION) = mrYes  then
+    Begin
+      Try
+        TClientDataSet(DS_TB.DataSet).Delete;
+        TClientDataSet(DS_TB.DataSet).ApplyUpdates(0);
+        Application.MessageBox('Registro Excluido com Sucesso!', 'Informação', MB_OK+MB_ICONINFORMATION);
+        TClientDataSet(DS_TB.DataSet).Open;//Limpa os Registros
+
+        Except on E: Exception do
+        raise Exception.Create('Erro ao Excluir Registro ' +E.Message);
+
+      End;
+    End;
+    Limpartudo;
+    DesabilitaCampos;
+
+end;
+
+procedure TFrm_Padrao.actDeletarUpdate(Sender: TObject);
+begin
+ //Evento OnUpdate Botão Deletar
+  If (DS_TB.State in [DSBrowse]) and (not TClientDataSet(DS_TB.DataSet).IsEmpty) then
+  ActDeletar.Enabled := DS_TB.State in [DSBrowse];
+end;
+
+procedure TFrm_Padrao.actCancelarExecute(Sender: TObject);
+begin
+  TClientDataSet(DS_TB.DataSet).Cancel;
+  pg_Padrao.TabIndex     := 0; //Inserido
+  tb_Cadastro.TabVisible := False; //Inserido
+  tb_Pesquisa.TabVisible := True; //Inserido
+  LimparTudo;
+  DesabilitaCampos;
+  btn_Filtar.Enabled:=False;
+  Sbtn_Novo.Enabled:=True;
+  Sbtn_Editar.Enabled:=True;
+  Sbtn_Deletar.Enabled:=True;
+  Sbtn_Pesquisar.Enabled:=True;
+  Sbtn_Imprimir.Enabled:=True;
+end;
+
+procedure TFrm_Padrao.actCancelarUpdate(Sender: TObject);
+begin
+ //
+end;
+
+procedure TFrm_Padrao.actPesquisarExecute(Sender: TObject);
+begin
+  //Configuração Botão Pesquisar
+  pg_Padrao.ActivePage := tb_Pesquisa;
+  TClientDataSet(DS_TB.DataSet).Close;
+  TClientDataSet(DS_TB.DataSet).Open;
+  edt_Filtrar.Clear;
+  edt_Filtrar.Enabled:=True;
+  btn_Filtar.Enabled := True;
+  edt_Filtrar.SetFocus;
+end;
+
+procedure TFrm_Padrao.actPesquisarUpdate(Sender: TObject);
+begin
+//
+end;
+
+procedure TFrm_Padrao.actImprimirExecute(Sender: TObject);
+begin
+ //Configuração botão Imprimir
+    Application.MessageBox('Em Desenvolvimento Mané!!', 'Informação', MB_OK+MB_ICONINFORMATION)
+
+end;
+
+procedure TFrm_Padrao.actImprimirUpdate(Sender: TObject);
+begin
+ //Configuração Evento OnUpdate Botão Imprimir
+  If (DS_TB.State in [DSBrowse]) and (not TClientDataSet(DS_TB.DataSet).IsEmpty) then
+  ActImprimir.Enabled := DS_TB.State in [DSBrowse];
+end;
+
+procedure TFrm_Padrao.actSairExecute(Sender: TObject);
+begin
+  //Configuração Botão Sair
+  if (DS_TB.DataSet State in [DSBrowse], [DSEdit]) then
+
+  TClientDataSet(DS_TB.DataSet).Cancel;
+  TClientDataSet(DS_TB.DataSet).Close;
+  Close;
+end;
+
+procedure TFrm_Padrao.actSairUpdate(Sender: TObject);
+begin
+//
+end;
+
+//********************Close Config Buttom***************************************
+
+
+
+
+
+
+
+
+//--------------------MainMenu--------------------------------------------------
+
+procedure TFrm_Padrao.Sair1Click(Sender: TObject);
+begin
+   //Configuração MainMenu Botão -> Sair
+  TClientDataSet(DS_TB.DataSet).Cancel;
+  TClientDataSet(DS_TB.DataSet).Close;
+  Close;
+end;
+//********************Close MainMenu********************************************
+
+//--------------------StatusBar-------------------------------------------------
+procedure TFrm_Padrao.Timer1Timer(Sender: TObject);
+begin
+   //Configuração StatusBar
+  StatusBar1.Panels[2].Text := FormatDateTime('DDDD', Now);
+  StatusBar1.Panels[3].Text := DateTimeTostr(Now);
+end;
+//********************Close StatusBar*******************************************
+
+end.

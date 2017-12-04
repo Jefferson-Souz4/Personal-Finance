@@ -13,6 +13,9 @@ object Frm_Padrao: TFrm_Padrao
   KeyPreview = True
   Menu = MainMenu1
   OldCreateOrder = False
+  Position = poDesktopCenter
+  WindowState = wsMaximized
+  OnClose = FormClose
   OnCreate = FormCreate
   OnKeyPress = FormKeyPress
   PixelsPerInch = 96
@@ -57,7 +60,6 @@ object Frm_Padrao: TFrm_Padrao
       item
         Width = 50
       end>
-    ExplicitTop = 430
   end
   object pg_Padrao: TPageControl
     Left = 0
@@ -67,10 +69,12 @@ object Frm_Padrao: TFrm_Padrao
     ActivePage = tb_Pesquisa
     Align = alClient
     TabOrder = 2
-    ExplicitHeight = 341
     object tb_Cadastro: TTabSheet
       Caption = 'Cadastro'
-      ExplicitHeight = 313
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object pnl_Cad_Centro: TPanel
         Left = 0
         Top = 0
@@ -82,13 +86,11 @@ object Frm_Padrao: TFrm_Padrao
         Color = clMoneyGreen
         ParentBackground = False
         TabOrder = 0
-        ExplicitHeight = 313
       end
     end
     object tb_Pesquisa: TTabSheet
       Caption = 'Pesquisa'
       ImageIndex = 1
-      ExplicitHeight = 313
       object pnl_Pes_Centro: TPanel
         Left = 0
         Top = 0
@@ -100,7 +102,6 @@ object Frm_Padrao: TFrm_Padrao
         Color = clMoneyGreen
         ParentBackground = False
         TabOrder = 0
-        ExplicitTop = -6
         object lb_Pesquisar: TLabel
           Left = 358
           Top = 27
@@ -118,19 +119,20 @@ object Frm_Padrao: TFrm_Padrao
           TabOrder = 0
           OnClick = rdg_SelecionarClick
         end
-        object edt_Pesquissar: TEdit
+        object edt_Filtrar: TEdit
           Left = 358
           Top = 46
           Width = 158
           Height = 21
           TabOrder = 1
         end
-        object btn_Pesquisar: TBitBtn
+        object btn_Filtar: TBitBtn
           Left = 522
           Top = 44
           Width = 81
           Height = 25
-          Caption = '&Pesquisar'
+          Cursor = crHandPoint
+          Caption = '&Filtrar'
           Kind = bkYes
           NumGlyphs = 2
           TabOrder = 2
@@ -206,16 +208,19 @@ object Frm_Padrao: TFrm_Padrao
             item
               Expanded = False
               FieldName = 'Data_Cadastro'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'Hora_Cadastro'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'Data_Nascimento'
+              Width = 64
               Visible = True
             end
             item
@@ -227,6 +232,7 @@ object Frm_Padrao: TFrm_Padrao
             item
               Expanded = False
               FieldName = 'Status'
+              Width = 64
               Visible = True
             end>
         end
@@ -242,7 +248,7 @@ object Frm_Padrao: TFrm_Padrao
     BevelInner = bvRaised
     BevelKind = bkTile
     TabOrder = 3
-    object SpeedButton1: TSpeedButton
+    object Sbtn_Novo: TSpeedButton
       Left = 2
       Top = 4
       Width = 58
@@ -250,7 +256,7 @@ object Frm_Padrao: TFrm_Padrao
       Action = actNovo
       Flat = True
     end
-    object SpeedButton2: TSpeedButton
+    object Sbtn_Editar: TSpeedButton
       Left = 58
       Top = 4
       Width = 58
@@ -258,7 +264,7 @@ object Frm_Padrao: TFrm_Padrao
       Action = actEditar
       Flat = True
     end
-    object SpeedButton3: TSpeedButton
+    object Sbtn_Salvar: TSpeedButton
       Left = 114
       Top = 4
       Width = 63
@@ -266,7 +272,7 @@ object Frm_Padrao: TFrm_Padrao
       Action = actSalvar
       Flat = True
     end
-    object SpeedButton4: TSpeedButton
+    object Sbtn_Cancelar: TSpeedButton
       Left = 175
       Top = 4
       Width = 70
@@ -274,7 +280,7 @@ object Frm_Padrao: TFrm_Padrao
       Action = actCancelar
       Flat = True
     end
-    object SpeedButton5: TSpeedButton
+    object Sbtn_Deletar: TSpeedButton
       Left = 243
       Top = 4
       Width = 63
@@ -282,7 +288,7 @@ object Frm_Padrao: TFrm_Padrao
       Action = actDeletar
       Flat = True
     end
-    object SpeedButton6: TSpeedButton
+    object Sbtn_Pesquisar: TSpeedButton
       Left = 304
       Top = 4
       Width = 71
@@ -290,7 +296,7 @@ object Frm_Padrao: TFrm_Padrao
       Action = actPesquisar
       Flat = True
     end
-    object SpeedButton7: TSpeedButton
+    object Sbtn_Imprimir: TSpeedButton
       Left = 373
       Top = 4
       Width = 63
@@ -298,7 +304,7 @@ object Frm_Padrao: TFrm_Padrao
       Action = actImprimir
       Flat = True
     end
-    object SpeedButton8: TSpeedButton
+    object Sbtn_Sair: TSpeedButton
       Left = 434
       Top = 4
       Width = 63
@@ -326,48 +332,64 @@ object Frm_Padrao: TFrm_Padrao
       Caption = 'Novo'
       ImageIndex = 0
       ShortCut = 114
+      OnExecute = actNovoExecute
+      OnUpdate = actNovoUpdate
     end
     object actEditar: TAction
       Caption = 'Editar'
       ImageIndex = 1
       ShortCut = 115
+      OnExecute = actEditarExecute
+      OnUpdate = actEditarUpdate
     end
     object actSalvar: TAction
       Caption = 'Salvar'
       ImageIndex = 2
       ShortCut = 116
+      OnExecute = actSalvarExecute
+      OnUpdate = actSalvarUpdate
     end
     object actDeletar: TAction
       Caption = 'Deletar'
       ImageIndex = 3
       ShortCut = 117
+      OnExecute = actDeletarExecute
+      OnUpdate = actDeletarUpdate
     end
     object actCancelar: TAction
       Caption = 'Cancelar'
       ImageIndex = 4
       ShortCut = 118
+      OnExecute = actCancelarExecute
+      OnUpdate = actCancelarUpdate
     end
     object actPesquisar: TAction
       Caption = 'Pesquisar'
       ImageIndex = 5
       ShortCut = 119
+      OnExecute = actPesquisarExecute
+      OnUpdate = actPesquisarUpdate
     end
     object actImprimir: TAction
       Caption = 'Imprimir'
       ImageIndex = 6
       ShortCut = 120
+      OnExecute = actImprimirExecute
+      OnUpdate = actImprimirUpdate
     end
     object actSair: TAction
       Caption = 'Sair'
       ImageIndex = 7
       ShortCut = 121
+      OnExecute = actSairExecute
+      OnUpdate = actSairUpdate
     end
   end
   object ImageList1: TImageList
     Left = 568
     Top = 312
     Bitmap = {
-      494C010108001800200010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010108001800400010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000003000000001002000000000000030
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -776,7 +798,7 @@ object Frm_Padrao: TFrm_Padrao
     Top = 288
   end
   object DS_TB: TDataSource
-    DataSet = DM.FT_tbUsuario
+    DataSet = DM.FQ_tbUsuario
     Left = 176
     Top = 288
   end

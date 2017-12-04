@@ -42,6 +42,15 @@ type
     FT_tbUsuarioUsuario: TStringField;
     FT_tbUsuarioStatus: TStringField;
     FT_tbUsuarioSenha: TStringField;
+    FQ_tbConta: TFDQuery;
+    DS_tbConta: TDataSource;
+    FT_tbConta: TFDTable;
+    FQ_tbContaid: TFDAutoIncField;
+    FQ_tbContaNome_Banco: TStringField;
+    FQ_tbContaCodigo_Banco: TStringField;
+    FT_tbContaid: TFDAutoIncField;
+    FT_tbContaNome_Banco: TStringField;
+    FT_tbContaCodigo_Banco: TStringField;
   private
     { Private declarations }
   public

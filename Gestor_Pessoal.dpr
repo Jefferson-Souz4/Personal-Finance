@@ -7,7 +7,9 @@ uses
   uDM in 'DM\uDM.pas' {DM: TDataModule},
   Vcl.Themes,
   Vcl.Styles,
-  uFuncoes in 'Class\uFuncoes.pas';
+  uFuncoes in 'Class\uFuncoes.pas',
+  uCadastro_Banco in 'View\uCadastro_Banco.pas' {Frm_Cadastro_Banco},
+  uCadastro_Usuario in 'View\uCadastro_Usuario.pas' {Frm_Cadastro_Usuario};
 
 {$R *.res}
 

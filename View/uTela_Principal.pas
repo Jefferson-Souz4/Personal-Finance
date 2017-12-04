@@ -36,11 +36,15 @@ type
     BarSeries1: TBarSeries;
     Timer1: TTimer;
     BitBtn_Form_Padrao: TBitBtn;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
     procedure Timer1Timer(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Sair1Click(Sender: TObject);
     procedure BitBtn_Form_PadraoClick(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -54,7 +58,7 @@ implementation
 
 {$R *.dfm}
 
-uses uForm_Padrao;
+uses uForm_Padrao, uCadastro_Banco, uDM, uFuncoes, uCadastro_Usuario;
 
 
 //----------------------Main Menu-----------------------------------------------
@@ -106,7 +110,30 @@ end;
 
 //---------------------Button Execute-------------------------------------------
 
- procedure TFrm_Tela_Principal.BitBtn_Form_PadraoClick(Sender: TObject);
+ procedure TFrm_Tela_Principal.BitBtn1Click(Sender: TObject);
+begin
+//Botão Abre Form Cadastro banco
+    Frm_cadastro_banco:= TFrm_cadastro_banco.Create(nil);
+    Try
+      Frm_cadastro_banco.ShowModal
+    Finally
+      FreeAndNil(Frm_cadastro_banco);
+    end;
+
+end;
+
+procedure TFrm_Tela_Principal.BitBtn2Click(Sender: TObject);
+begin
+  //Botão Abre Form Cadastro Usuários
+    Frm_cadastro_usuario:= TFrm_cadastro_usuario.Create(nil);
+    Try
+      Frm_cadastro_usuario.ShowModal
+    Finally
+      FreeAndNil(Frm_cadastro_usuario);
+    end;
+end;
+
+procedure TFrm_Tela_Principal.BitBtn_Form_PadraoClick(Sender: TObject);
 begin
  //Botão Abre Form Cadastro Usuários
     Frm_Padrao:= TFrm_Padrao.Create(nil);

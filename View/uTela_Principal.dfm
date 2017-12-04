@@ -14,6 +14,7 @@ object Frm_Tela_Principal: TFrm_Tela_Principal
   Menu = MainMenu1
   OldCreateOrder = False
   Position = poDesktopCenter
+  WindowState = wsMaximized
   OnClose = FormClose
   OnKeyPress = FormKeyPress
   PixelsPerInch = 96
@@ -679,6 +680,24 @@ object Frm_Tela_Principal: TFrm_Tela_Principal
     Caption = 'Form Padr'#227'o'
     TabOrder = 4
     OnClick = BitBtn_Form_PadraoClick
+  end
+  object BitBtn1: TBitBtn
+    Left = 128
+    Top = 342
+    Width = 105
+    Height = 65
+    Caption = 'banco'
+    TabOrder = 5
+    OnClick = BitBtn1Click
+  end
+  object BitBtn2: TBitBtn
+    Left = 128
+    Top = 271
+    Width = 105
+    Height = 65
+    Caption = 'Usu'#225'rio'
+    TabOrder = 6
+    OnClick = BitBtn2Click
   end
   object MainMenu1: TMainMenu
     Left = 360
