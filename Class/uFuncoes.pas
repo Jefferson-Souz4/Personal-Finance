@@ -1,0 +1,33 @@
+unit uFuncoes;
+
+interface
+Uses
+Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, System.Actions,
+  Vcl.ActnList, System.ImageList, Vcl.ImgList, Vcl.Menus, Vcl.ToolWin, Data.DB,
+  Vcl.Buttons, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Grids, Vcl.DBGrids,
+  Datasnap.DBClient, Vcl.Mask, Vcl.DBCtrls, Data.DBXMySQL, Data.FMTBcd,
+  Data.SqlExpr, Datasnap.Provider;
+
+Procedure EditarDBGrid (DataSource: TDataSource; Sender: TDBGrid; State : TGridDrawState; Rect : TRect; Column : TColumn);
+
+
+implementation
+
+
+Procedure EditarDBGrid (DataSource: TDataSource; Sender: TDBGrid; State : TGridDrawState; Rect : TRect; Column : TColumn);
+  Begin
+    //Function Change Background Color for DBGRID - FormPadrão
+    if not odd(DataSource.Dataset.RecNo) then
+    Begin
+      if Not (GdSelected in State) then
+       Begin
+        Sender.Canvas.Brush.Color := $00FFEFDF ;
+        Sender.Canvas.FillRect(Rect);
+        Sender.DefaultDrawDataCell(Rect, Column.Field, State);
+
+       End;
+    End;
+end;
+
+end.

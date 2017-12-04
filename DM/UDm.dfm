@@ -41,8 +41,8 @@ object DM: TDM
       'Compressed=False'
       'Encrypted=False'
       'ConnectTimeout=60')
-    Left = 16
-    Top = 24
+    Left = 584
+    Top = 32
   end
   object FDGUIxErrorDialog1: TFDGUIxErrorDialog
     Provider = 'Forms'
@@ -58,5 +58,142 @@ object DM: TDM
     Provider = 'Forms'
     Left = 280
     Top = 392
+  end
+  object FDConnection: TFDConnection
+    Params.Strings = (
+      'Database=gestor_financeiro'
+      'User_Name=root'
+      'DriverID=MySQL')
+    Connected = True
+    LoginPrompt = False
+    Left = 16
+    Top = 16
+  end
+  object DS_tbUsuario: TDataSource
+    DataSet = FQ_tbUsuario
+    Left = 104
+    Top = 120
+  end
+  object FQ_tbUsuario: TFDQuery
+    Connection = FDConnection
+    SQL.Strings = (
+      'Select * From tb_usuario')
+    Left = 24
+    Top = 120
+    object FQ_tbUsuarioId: TFDAutoIncField
+      DisplayLabel = 'N'#186' Registro'
+      FieldName = 'Id'
+      ReadOnly = True
+    end
+    object FQ_tbUsuarioNome: TStringField
+      FieldName = 'Nome'
+      Required = True
+      Size = 40
+    end
+    object FQ_tbUsuarioSobreNome: TStringField
+      FieldName = 'SobreNome'
+      Required = True
+      Size = 40
+    end
+    object FQ_tbUsuarioLogin: TStringField
+      FieldName = 'Login'
+      Required = True
+    end
+    object FQ_tbUsuarioSenha: TStringField
+      FieldName = 'Senha'
+      Required = True
+    end
+    object FQ_tbUsuarioData_Cadastro: TDateField
+      DisplayLabel = 'Data do Cadastro'
+      FieldName = 'Data_Cadastro'
+    end
+    object FQ_tbUsuarioHora_Cadastro: TTimeField
+      DisplayLabel = 'Hora do Cadastro'
+      FieldName = 'Hora_Cadastro'
+    end
+    object FQ_tbUsuarioData_Nascimento: TDateField
+      DisplayLabel = 'Data de Nascimento'
+      FieldName = 'Data_Nascimento'
+    end
+    object FQ_tbUsuarioUsuario: TStringField
+      DisplayLabel = 'Usu'#225'rio'
+      FieldName = 'Usuario'
+    end
+    object FQ_tbUsuarioStatus: TStringField
+      FieldName = 'Status'
+      Size = 1
+    end
+  end
+  object FT_tbUsuario: TFDTable
+    Active = True
+    IndexFieldNames = 'Id'
+    Connection = FDConnection
+    UpdateOptions.UpdateTableName = 'gestor_financeiro.tb_usuario'
+    TableName = 'gestor_financeiro.tb_usuario'
+    Left = 176
+    Top = 120
+    object FT_tbUsuarioId: TFDAutoIncField
+      DisplayLabel = 'N'#186' Registro'
+      FieldName = 'Id'
+      Origin = 'Id'
+    end
+    object FT_tbUsuarioNome: TStringField
+      FieldName = 'Nome'
+      Origin = 'Nome'
+      Required = True
+      Size = 40
+    end
+    object FT_tbUsuarioSobreNome: TStringField
+      FieldName = 'SobreNome'
+      Origin = 'SobreNome'
+      Required = True
+      Size = 40
+    end
+    object FT_tbUsuarioLogin: TStringField
+      FieldName = 'Login'
+      Origin = 'Login'
+      Required = True
+    end
+    object FT_tbUsuarioSenha: TStringField
+      FieldName = 'Senha'
+      Origin = 'Senha'
+      Required = True
+    end
+    object FT_tbUsuarioData_Cadastro: TDateField
+      AutoGenerateValue = arDefault
+      DisplayLabel = 'Data do Cadastro'
+      FieldName = 'Data_Cadastro'
+      Origin = 'Data_Cadastro'
+    end
+    object FT_tbUsuarioHora_Cadastro: TTimeField
+      AutoGenerateValue = arDefault
+      DisplayLabel = 'Hora do Cadastro'
+      FieldName = 'Hora_Cadastro'
+      Origin = 'Hora_Cadastro'
+    end
+    object FT_tbUsuarioData_Nascimento: TDateField
+      AutoGenerateValue = arDefault
+      DisplayLabel = 'Data de Nascimento'
+      FieldName = 'Data_Nascimento'
+      Origin = 'Data_Nascimento'
+    end
+    object FT_tbUsuarioUsuario: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'Usuario'
+      Origin = 'Usuario'
+    end
+    object FT_tbUsuarioStatus: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'Status'
+      Origin = 'Status'
+      Size = 1
+    end
+  end
+  object Driver: TFDPhysMySQLDriverLink
+    VendorLib = 
+      'C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\G' +
+      'estor Pessoal\Lib\libmySQL.dll'
+    Left = 80
+    Top = 16
   end
 end

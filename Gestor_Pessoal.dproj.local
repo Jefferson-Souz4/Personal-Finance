@@ -3,8 +3,8 @@
 	<Transactions>
     <Transaction>2017/12/02 23:03:57.000.413,=C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2017/12/02 23:17:13.000.582,=C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2017/12/02 23:33:16.000.715,C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Gestor Pessoal\View\uTela_Principal.dfm</Transaction>
     <Transaction>2017/12/02 23:33:16.000.715,C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Gestor Pessoal\View\uTela_Principal.pas</Transaction>
+    <Transaction>2017/12/02 23:33:16.000.715,C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Gestor Pessoal\View\uTela_Principal.dfm</Transaction>
     <Transaction>2017/12/02 23:34:36.000.109,C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Gestor Pessoal\Project\Gestor_Pessoal.dproj</Transaction>
     <Transaction>2017/12/02 23:35:17.000.176,C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Gestor Pessoal\Project\Gestor_Pessoal.dproj=C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Gestor Pessoal\Gestor_Pessoal.dproj</Transaction>
     <Transaction>2017/12/03 01:04:42.000.231,=C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Gestor Pessoal\Unit1.pas</Transaction>
@@ -13,5 +13,8 @@
     <Transaction>2017/12/03 01:06:27.000.254,=C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Gestor Pessoal\Unit1.pas</Transaction>
     <Transaction>2017/12/03 01:07:09.000.206,C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Gestor Pessoal\Unit1.dfm=C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Gestor Pessoal\DM\uDM.dfm</Transaction>
     <Transaction>2017/12/03 01:07:09.000.206,C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Gestor Pessoal\Unit1.pas=C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Gestor Pessoal\DM\uDM.pas</Transaction>
+    <Transaction>2017/12/03 23:53:29.598,=C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Gestor Pessoal\Unit1.pas</Transaction>
+    <Transaction>2017/12/03 23:53:42.499,C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Gestor Pessoal\uFuncoes.pas=C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Gestor Pessoal\Unit1.pas</Transaction>
+    <Transaction>2017/12/03 23:53:54.406,C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Gestor Pessoal\Class\uFuncoes.pas=C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\Gestor Pessoal\uFuncoes.pas</Transaction>
   </Transactions>
 </BorlandProject>
