@@ -176,6 +176,8 @@ object DM: TDM
       DisplayLabel = 'Data de Nascimento'
       FieldName = 'Data_Nascimento'
       Origin = 'Data_Nascimento'
+      Required = True
+      EditMask = '!99/99/0000;1;_'
     end
     object FT_tbUsuarioUsuario: TStringField
       AutoGenerateValue = arDefault

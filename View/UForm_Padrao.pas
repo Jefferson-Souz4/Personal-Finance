@@ -48,7 +48,7 @@ type
     lb_NRegistro: TLabel;
     lb_Pesquisar: TLabel;
     edt_Filtrar: TEdit;
-    btn_Filtar: TBitBtn;
+    sbtn_Filtrar: TSpeedButton;
     procedure Timer1Timer(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure FormCreate(Sender: TObject);
@@ -152,6 +152,7 @@ begin
       if (Components[i] is TEdit) then
       TEdit (Components[i]).Enabled := False;
     end;
+
 end;
 
 
@@ -247,7 +248,7 @@ begin
   pg_Padrao.TabIndex     := 0; //Inserido
   tb_Cadastro.TabVisible := False; //Inserido
   tb_Pesquisa.TabVisible := True; //Inserido
-  btn_Filtar.Enabled := False;
+  sbtn_Filtrar.Enabled := False;
 end;
 
 procedure TFrm_Padrao.FormKeyPress(Sender: TObject; var Key: Char);
@@ -392,7 +393,7 @@ begin
   tb_Pesquisa.TabVisible := True; //Inserido
   LimparTudo;
   DesabilitaCampos;
-  btn_Filtar.Enabled:=False;
+  sbtn_Filtrar.Enabled:=False;
   Sbtn_Novo.Enabled:=True;
   Sbtn_Editar.Enabled:=True;
   Sbtn_Deletar.Enabled:=True;
@@ -413,7 +414,7 @@ begin
   TClientDataSet(DS_TB.DataSet).Open;
   edt_Filtrar.Clear;
   edt_Filtrar.Enabled:=True;
-  btn_Filtar.Enabled := True;
+  sbtn_Filtrar.Enabled := True;
   edt_Filtrar.SetFocus;
 end;
 
