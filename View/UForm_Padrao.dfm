@@ -101,12 +101,12 @@ object Frm_Padrao: TFrm_Padrao
         ParentBackground = False
         TabOrder = 0
         ExplicitTop = -6
-        object Label1: TLabel
+        object lb_Pesquisar: TLabel
           Left = 358
           Top = 27
-          Width = 31
+          Width = 46
           Height = 13
-          Caption = 'Label1'
+          Caption = 'Pesquisar'
         end
         object rdg_Selecionar: TRadioGroup
           Left = 16
@@ -118,13 +118,22 @@ object Frm_Padrao: TFrm_Padrao
           TabOrder = 0
           OnClick = rdg_SelecionarClick
         end
-        object Edit1: TEdit
+        object edt_Pesquissar: TEdit
           Left = 358
           Top = 46
-          Width = 121
+          Width = 158
           Height = 21
           TabOrder = 1
-          Text = 'Edit1'
+        end
+        object btn_Pesquisar: TBitBtn
+          Left = 522
+          Top = 44
+          Width = 81
+          Height = 25
+          Caption = '&Pesquisar'
+          Kind = bkYes
+          NumGlyphs = 2
+          TabOrder = 2
         end
       end
       object pnl_grid: TPanel

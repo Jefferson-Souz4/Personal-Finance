@@ -46,8 +46,9 @@ type
     dbg_Dados: TDBGrid;
     rdg_Selecionar: TRadioGroup;
     lb_NRegistro: TLabel;
-    Label1: TLabel;
-    Edit1: TEdit;
+    lb_Pesquisar: TLabel;
+    edt_Pesquissar: TEdit;
+    btn_Pesquisar: TBitBtn;
     procedure Timer1Timer(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure FormCreate(Sender: TObject);
