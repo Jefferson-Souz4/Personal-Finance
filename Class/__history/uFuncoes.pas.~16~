@@ -1,0 +1,60 @@
+unit uFuncoes;
+
+interface
+Uses
+Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, System.Actions,
+  Vcl.ActnList, System.ImageList, Vcl.ImgList, Vcl.Menus, Vcl.ToolWin, Data.DB,
+  Vcl.Buttons, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Grids, Vcl.DBGrids,
+  Datasnap.DBClient, Vcl.Mask, Vcl.DBCtrls, Data.DBXMySQL, Data.FMTBcd,
+  Data.SqlExpr, Datasnap.Provider;
+
+Procedure EditarDBGrid (DataSource: TDataSource; Sender: TDBGrid; State : TGridDrawState; Rect : TRect; Column : TColumn);
+Function GetVerifCadastroDuplicado (Login : String):Boolean;
+
+implementation
+
+uses uDM, FireDAC.Comp.Client;
+
+
+Procedure EditarDBGrid (DataSource: TDataSource; Sender: TDBGrid; State : TGridDrawState; Rect : TRect; Column : TColumn);
+  Begin
+    //Function Change Background Color for DBGRID - FormPadrão
+    if not odd(DataSource.Dataset.RecNo) then
+    Begin
+      if Not (GdSelected in State) then
+       Begin
+        Sender.Canvas.Brush.Color := $00FFEFDF ;
+        Sender.Canvas.FillRect(Rect);
+        Sender.DefaultDrawDataCell(Rect, Column.Field, State);
+
+       End;
+    End;
+end;
+
+ //Função para Verificar se Já existe o Login Cadastrado.
+  Function GetVerifCadastroDuplicado (Login : String):Boolean;
+  begin
+  Result := False;
+    With
+    TFDQuery.Create(nil) do
+      Try
+        FDQuery :=DM.FDConnection;
+        Close;
+        SQL.Clear;
+        SQL.ADD('Select Id From tb_usuario Where Login = :Login');
+        Params [0].AsString := Login;
+        Open;
+        if not IsEmpty then
+            Result :=True;
+      Finally
+      Close;
+      Free;
+      End;
+
+  end;
+
+
+
+
+end.

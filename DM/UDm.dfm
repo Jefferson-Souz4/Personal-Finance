@@ -24,8 +24,8 @@ object DM: TDM
       'DriverID=MySQL')
     Connected = True
     LoginPrompt = False
-    Left = 16
-    Top = 16
+    Left = 64
+    Top = 24
   end
   object DS_tbUsuario: TDataSource
     DataSet = FQ_tbUsuario
@@ -155,7 +155,7 @@ object DM: TDM
     VendorLib = 
       'C:\Users\Jefferson Souza\Documents\Embarcadero\Studio\Projects\G' +
       'estor Pessoal\Lib\libmySQL.dll'
-    Left = 80
+    Left = 168
     Top = 16
   end
   object FQ_tbConta: TFDQuery

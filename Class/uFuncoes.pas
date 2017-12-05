@@ -10,9 +10,12 @@ Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classe
   Data.SqlExpr, Datasnap.Provider;
 
 Procedure EditarDBGrid (DataSource: TDataSource; Sender: TDBGrid; State : TGridDrawState; Rect : TRect; Column : TColumn);
-
+Function GetVerifCadastroDuplicado (Login : String):Boolean;
 
 implementation
+
+uses uDM, FireDAC.Comp.Client, uCadastro_Banco, uCadastro_Usuario, uForm_Padrao,
+  uTela_Principal;
 
 
 Procedure EditarDBGrid (DataSource: TDataSource; Sender: TDBGrid; State : TGridDrawState; Rect : TRect; Column : TColumn);
@@ -29,5 +32,30 @@ Procedure EditarDBGrid (DataSource: TDataSource; Sender: TDBGrid; State : TGridD
        End;
     End;
 end;
+
+ //Função para Verificar se Já existe o Login Cadastrado.
+  Function GetVerifCadastroDuplicado (Login : String):Boolean;
+  begin
+  Result := False;
+    With
+    TFDQuery.Create(nil) do
+      Try
+        Connection := DM.FDConnection;
+        Close;
+        SQL.Clear;
+        SQL.Add('Select Id From tb_usuario Where Login = :Login');
+        Params [0].AsString := Login;
+        Open;
+        if not IsEmpty then
+            Result :=True;
+      Finally
+      Close;
+      Free;
+      End;
+
+  end;
+
+
+
 
 end.

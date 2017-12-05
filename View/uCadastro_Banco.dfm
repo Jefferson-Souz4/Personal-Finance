@@ -1,7 +1,5 @@
 inherited Frm_Cadastro_Banco: TFrm_Cadastro_Banco
   Caption = 'Frm_Cadastro_Banco'
-  ExplicitWidth = 711
-  ExplicitHeight = 571
   PixelsPerInch = 96
   TextHeight = 13
   inherited pnl_Barra_Titulo: TPanel
@@ -9,21 +7,37 @@ inherited Frm_Cadastro_Banco: TFrm_Cadastro_Banco
   end
   inherited pg_Padrao: TPageControl
     inherited tb_Cadastro: TTabSheet
-      ExplicitLeft = 4
-      ExplicitTop = 24
-      ExplicitWidth = 687
-      ExplicitHeight = 376
-    end
-    inherited tb_Pesquisa: TTabSheet
-      ExplicitLeft = 4
-      ExplicitTop = 24
-      ExplicitWidth = 687
-      ExplicitHeight = 376
+      inherited pnl_Cad_Centro: TPanel
+        object Edit1: TEdit
+          Left = 24
+          Top = 48
+          Width = 121
+          Height = 21
+          TabOrder = 0
+          Text = 'Edit1'
+        end
+        object Edit2: TEdit
+          Left = 24
+          Top = 88
+          Width = 121
+          Height = 21
+          TabOrder = 1
+          Text = 'Edit1'
+        end
+        object Edit3: TEdit
+          Left = 24
+          Top = 128
+          Width = 121
+          Height = 21
+          TabOrder = 2
+          Text = 'Edit1'
+        end
+      end
     end
   end
   inherited ImageList1: TImageList
     Bitmap = {
-      494C010108001800380010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101080018003C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000003000000001002000000000000030
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

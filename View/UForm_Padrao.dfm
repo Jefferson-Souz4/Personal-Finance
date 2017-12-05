@@ -46,19 +46,26 @@ object Frm_Padrao: TFrm_Padrao
     Height = 19
     Panels = <
       item
-        Width = 50
+        Text = 'JFD Tecnologies Ltda.'
+        Width = 150
       end
       item
-        Width = 50
+        Text = 'Vers'#227'o:10.10.10'
+        Width = 100
       end
       item
-        Width = 50
+        Alignment = taCenter
+        Text = 'dia da Semana'
+        Width = 100
       end
       item
-        Width = 50
+        Alignment = taCenter
+        Text = 'Data'
+        Width = 200
       end
       item
-        Width = 50
+        Text = 'usu'#225'rio'
+        Width = 100
       end>
   end
   object pg_Padrao: TPageControl
@@ -71,6 +78,10 @@ object Frm_Padrao: TFrm_Padrao
     TabOrder = 2
     object tb_Cadastro: TTabSheet
       Caption = 'Cadastro'
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object pnl_Cad_Centro: TPanel
         Left = 0
         Top = 0
@@ -87,6 +98,10 @@ object Frm_Padrao: TFrm_Padrao
     object tb_Pesquisa: TTabSheet
       Caption = 'Pesquisa'
       ImageIndex = 1
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object pnl_Pes_Centro: TPanel
         Left = 0
         Top = 0
@@ -241,19 +256,16 @@ object Frm_Padrao: TFrm_Padrao
             item
               Expanded = False
               FieldName = 'Data_Cadastro'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'Hora_Cadastro'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'Data_Nascimento'
-              Width = 64
               Visible = True
             end
             item
@@ -265,7 +277,6 @@ object Frm_Padrao: TFrm_Padrao
             item
               Expanded = False
               FieldName = 'Status'
-              Width = 64
               Visible = True
             end>
         end
@@ -422,7 +433,7 @@ object Frm_Padrao: TFrm_Padrao
     Left = 568
     Top = 312
     Bitmap = {
-      494C010108001800480010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010108001800580010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000003000000001002000000000000030
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

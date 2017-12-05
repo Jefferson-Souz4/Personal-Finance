@@ -140,6 +140,7 @@ begin
       if (Components[i] is TEdit) then
       TEdit(Components[i]).Enabled := True;
     end;
+  rdg_Selecionar.Enabled:= True;
 end;
 
 procedure TFrm_Padrao.DesabilitaCampos;
@@ -152,6 +153,7 @@ begin
       if (Components[i] is TEdit) then
       TEdit (Components[i]).Enabled := False;
     end;
+    rdg_Selecionar.Enabled:= False;
 
 end;
 
@@ -308,9 +310,6 @@ begin
   pg_padrao.TabIndex     := 0;
   tb_Cadastro.TabVisible := True;
   tb_Pesquisa.TabVisible := False;
-  //if Pg_padrao.ActivePage = tb_Pesquisa then
-  //pg_padrao.ActivePage := tb_Cadastro;
- //TClientDataSet(DS_TB.DataSet).Edit;
   HabilitaCampos;
   Sbtn_Pesquisar.Enabled:=False;
   Sbtn_Imprimir.Enabled:=False;
@@ -320,7 +319,7 @@ procedure TFrm_Padrao.actEditarUpdate(Sender: TObject);
 begin
   //Configuração Evento OnUpdate Botão Editar
   If (DS_TB.State in [DSBrowse]) and (not TClientDataSet(DS_TB.DataSet).IsEmpty) then
-  ActEditar.Enabled := DS_TB.State in [DSBrowse];
+  ActEditar.Enabled := DS_TB.State in [DSBrowse, DSEdit];
 end;
 
 procedure TFrm_Padrao.actSalvarExecute(Sender: TObject);
@@ -412,10 +411,12 @@ begin
   pg_Padrao.ActivePage := tb_Pesquisa;
   TClientDataSet(DS_TB.DataSet).Close;
   TClientDataSet(DS_TB.DataSet).Open;
+  HabilitaCampos;
   edt_Filtrar.Clear;
   edt_Filtrar.Enabled:=True;
   sbtn_Filtrar.Enabled := True;
   edt_Filtrar.SetFocus;
+  sbtn_Novo.Enabled:=False;
 end;
 
 procedure TFrm_Padrao.actPesquisarUpdate(Sender: TObject);

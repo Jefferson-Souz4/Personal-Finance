@@ -7,7 +7,8 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Menus, Vcl.ComCtrls,
   Vcl.Buttons, System.ImageList, Vcl.ImgList, VclTee.TeeGDIPlus, Data.DB,
   VCLTee.TeEngine, VCLTee.TeeProcs, VCLTee.Chart, VCLTee.DBChart, VCLTee.Series,
-  Vcl.StdCtrls;
+  Vcl.StdCtrls, IdBaseComponent, IdComponent, IdTCPConnection, IdTCPClient,
+  IdHTTP;
 
 type
   TFrm_Tela_Principal = class(TForm)
@@ -45,6 +46,9 @@ type
     procedure BitBtn_Form_PadraoClick(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
+
+
+
   private
     { Private declarations }
   public
@@ -102,7 +106,6 @@ end;
 
 
 
-
 //********************Close Events Form*****************************************
 
 
@@ -143,7 +146,6 @@ begin
       FreeAndNil(Frm_Padrao);
     end;
 end;
-
 
 
 //********************Close Button Execute**************************************

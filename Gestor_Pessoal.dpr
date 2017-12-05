@@ -16,7 +16,6 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  TStyleManager.TrySetStyle('Sky 2');
   Application.CreateForm(TFrm_Tela_Principal, Frm_Tela_Principal);
   Application.CreateForm(TDM, DM);
   Application.Run;
